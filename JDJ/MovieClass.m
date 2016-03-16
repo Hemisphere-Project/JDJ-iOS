@@ -12,17 +12,16 @@
 
 @implementation MovieClass
 
-@synthesize movie1view, movie2view;
+@synthesize movie1view;
 
 //###########################################################
 // INIT
 
 - (id) init
 {
-    use1 = YES;
-    
     movieLoad = nil;
     movieCurrent = nil;
+    audioMask = FALSE;
     
     //Create PLAYER 1 view
     movie1view = [[UIView alloc] initWithFrame:CGRectMake(0,0,100,100)];
@@ -41,8 +40,13 @@
 // MOVIE PLAYER CONTROLS
 
 //LOAD
--(void) load:(NSString*)file {
-    if ([file length]>=1) movieLoad = file;
+-(void) load:(NSString*)file Mask:(BOOL)audiomask Time:(NSNumber*)atTime {
+    if ([file length]>=1) {
+        movieLoad = file;
+        audioMask = audiomask;
+        
+    }
+    
 }
 
 //PLAY
@@ -50,18 +54,7 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    //if ([[appDelegate.disPlay resolution]  isEqual: @"noscreen"]) return;
     if (movieLoad == nil) return;
-    
-    if ([movieLoad isEqualToString:@"*"] && (movieCurrent != nil)) {
-        movieLoad = [movieCurrent copy];
-        return;
-    }
-    
-    if ([movieLoad isEqualToString:@"stop"]) {
-        [self stop];
-        return;
-    }
     
     //if same movie just rewind
     if ([movieCurrent isEqualToString:movieLoad]) [self restart];
@@ -77,7 +70,7 @@
         player = [AVPlayer playerWithPlayerItem:playerItem];
         player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
         
-        //auto-loop
+        //movie end observer
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(movieDidEnd:)
                                                      name:AVPlayerItemDidPlayToEndTimeNotification
@@ -88,8 +81,7 @@
         
         //select View
         UIView *view;
-        if (use1) view = movie1view;
-        else view = movie2view;
+        view = movie1view;
         
         //Attach Layer
         layer.frame = movie1view.layer.bounds;
@@ -97,21 +89,14 @@
         [view.layer addSublayer:layer];
         
         //bring to front
-        [appDelegate.disPlay.movieview bringSubviewToFront:view];
+        //[appDelegate.disPlay.movieview bringSubviewToFront:view];
         
         movieCurrent = [movieLoad copy];
         
         //let's play
         [self start];
-        use1 = !use1;
         
-        //Releaser of previous player
-        if (Releaser != nil) [Releaser invalidate];
-        Releaser = [NSTimer scheduledTimerWithTimeInterval:TIMER_RELMOVIE
-                                                    target:self selector:@selector(releaseMovie) userInfo:nil repeats:NO];
-        
-        
-        [appDelegate.disPlay music:[appDelegate.disPlay musiced]];
+        [appDelegate.disPlay music:audioMask];
     }
 }
 
@@ -144,7 +129,11 @@
 -(void) stop{
     
     movie1view.layer.sublayers = nil;
-    movie2view.layer.sublayers = nil;
+    player = nil;
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.disPlay music:FALSE];
+    [appDelegate.disPlay loader:FALSE];
     
     paused = NO;
     
@@ -248,11 +237,7 @@
         [player seekToTime:CMTimeMake(playbacktimeWanted, 1000) toleranceBefore: kCMTimeZero toleranceAfter: kCMTimeZero];
         [self start];
     }
-    else {
-        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        [appDelegate.runMachine dispatch:@"/stopmovie"];
-        //TODO REPLACE with [self stop]; but carefully   - direct call from dispatcher : stop is not allowed !
-    }
+    else [self stop];
 }
 
 //CURRENT MOVIE
@@ -277,15 +262,6 @@
 -(CMTime) currentTime{
     if ([self isPlaying]) return [player currentTime];
     else return CMTimeMakeWithSeconds(0, 1);
-}
-
-//RELEASE PLAYER
-- (void) releaseMovie {
-    
-    if (use1) movie1view.layer.sublayers = nil;
-    else movie2view.layer.sublayers = nil;
-    
-    Releaser = nil;
 }
 
 @end

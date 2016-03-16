@@ -13,11 +13,8 @@
 @interface MovieClass : NSObject {
     
     AVPlayer* player;
-    
     UIView *movie1view;
-    UIView *movie2view;
     
-    BOOL use1;
     BOOL paused;
     BOOL autoloop;
     int volume;
@@ -25,14 +22,12 @@
     
     NSString *movieLoad;
     NSString *movieCurrent;
-    
-    NSTimer *Releaser;
+    BOOL audioMask;
 }
 
 @property (nonatomic,retain) UIView *movie1view;
-@property (nonatomic,retain) UIView *movie2view;
 
--(void) load:(NSString*)file;
+-(void) load:(NSString*)file Mask:(BOOL)audiomask Time:(NSNumber*)atTime;
 -(void) play;
 -(void) stop;
 -(void) start;
@@ -54,6 +49,5 @@
 -(BOOL) isPlaying;
 -(CMTime) duration;
 -(CMTime) currentTime;
-- (void) releaseMovie;
 
 @end

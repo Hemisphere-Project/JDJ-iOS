@@ -13,7 +13,7 @@
 @implementation DisplayClass
 
 @synthesize _secondWindow,screenResolution;
-@synthesize musicview, movieview;
+@synthesize webview, movieview, textview;
 
 //###########################################################
 // DISPLAY : screen / views
@@ -28,6 +28,15 @@
 //###########################################################
 //VIEWS MANAGER
 
+//LOADER SHUTTER
+-(void) loader:(BOOL)loadMe {
+    
+    if (loaderview) {
+        if (loadMe) loaderview.alpha = 1;
+        else loaderview.alpha = 0;
+    }
+}
+
 //MUSIC SHUTTER
 -(void) music:(BOOL)musicMe {
     
@@ -37,9 +46,6 @@
     }
 }
 
--(BOOL) musiced {
-    return (musicview.alpha == 1);
-}
 
 //###########################################################
 //SCREEN MANAGER
@@ -67,47 +73,68 @@
     
     // Add a black background to the window
     UIView* backField = [[UIView alloc] initWithFrame:secondScreen.bounds];
-    backField.backgroundColor = [UIColor yellowColor];
+    backField.backgroundColor = [UIColor blackColor];
     [_secondWindow addSubview:backField];
     
     //MOVIE PLAYER
-    //Create Masks (movieview)
     movieview = [[UIView alloc] initWithFrame:secondScreen.bounds];
     movieview.backgroundColor = [UIColor clearColor];
     movieview.alpha=1;
     [_secondWindow addSubview:movieview];
     
-    //Attach PLAYER subviews
-    [movieview addSubview: appDelegate.moviePlayer.movie1view];
-    [movieview addSubview: appDelegate.moviePlayer.movie2view];
+        //Attach PLAYER subviews
+        [movieview addSubview: appDelegate.moviePlayer.movie1view];
     
-    //Resize PLAYER subviews
-    CGRect frame = movieview.frame;
-    appDelegate.moviePlayer.movie1view.frame = frame;
-    appDelegate.moviePlayer.movie2view.frame = frame;
+        //Resize PLAYER subviews
+        CGRect frame = movieview.frame;
+        appDelegate.moviePlayer.movie1view.frame = frame;
     
+    //AUDIO MASK
     //Create Masks (musicview)
     musicview = [[UIView alloc] initWithFrame:secondScreen.bounds];
-    musicview.backgroundColor = [UIColor yellowColor];
+    musicview.backgroundColor = [UIColor greenColor];
     musicview.alpha=0;
     [_secondWindow addSubview:musicview];
     
-    // Center a label in the view.
-    NSString*    noContentString = [NSString stringWithFormat:@" "];
-    CGSize        stringSize = [noContentString sizeWithFont:[UIFont systemFontOfSize:18]];
-    CGRect        labelSize = CGRectMake((secondScreen.bounds.size.width - stringSize.width) / 2.0,
-                                         (secondScreen.bounds.size.height - stringSize.height) / 2.0,
-                                         stringSize.width, stringSize.height);
-    UILabel*    noContentLabel = [[UILabel alloc] initWithFrame:labelSize];
-    noContentLabel.text = noContentString;
-    noContentLabel.font = [UIFont systemFontOfSize:18];
-    [musicview addSubview:noContentLabel];
+    //WEB PLAYER
+    webview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    webview.backgroundColor = [UIColor clearColor];
+    webview.alpha=1;
+    [_secondWindow addSubview:webview];
+    
+        //Attach PLAYER subviews
+        [webview addSubview: appDelegate.webPlayer.webview];
+    
+        //Resize PLAYER subviews
+        CGRect frame2 = webview.frame;
+        appDelegate.webPlayer.webview.frame = frame2;
+    
+    //TEXT PLAYER
+    textview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    textview.backgroundColor = [UIColor clearColor];
+    textview.alpha=1;
+    [_secondWindow addSubview:textview];
+    
+        //Attach PLAYER subviews
+        [textview addSubview: appDelegate.textPlayer.textview];
+    
+        //Resize PLAYER subviews
+        CGRect frame3 = textview.frame;
+        appDelegate.textPlayer.textview.frame = frame3;
+    
+    //LOADER MASK
+    //Create Masks (loaderview)
+    loaderview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    loaderview.backgroundColor = [UIColor blueColor];
+    loaderview.alpha=0;
+    [_secondWindow addSubview:loaderview];
+    
     
     // Go ahead and show the window.
     _secondWindow.hidden = NO;
     
     //init View visibility
-    [self music: VIEW_MUSIC];
+    //[self music: VIEW_MUSIC];
 }
 
 //check screen

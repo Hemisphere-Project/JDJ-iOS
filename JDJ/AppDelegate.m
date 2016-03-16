@@ -19,9 +19,11 @@
 @synthesize disPlay;
 @synthesize comPort;
 @synthesize runMachine;
-//@synthesize checkMachine;
+@synthesize checkMachine;
 @synthesize filesManager;
 @synthesize moviePlayer;
+@synthesize webPlayer;
+@synthesize textPlayer;
 //@synthesize interFace;
 
 //###########################################################
@@ -41,13 +43,19 @@
     runMachine = [[RunClass alloc] init];
     
     //RUN MACHINE (Clock & Check states)
-    //checkMachine = [[CheckerClass alloc] init];
+    checkMachine = [[CheckerClass alloc] init];
     
     //FILES MANAGER
     filesManager = [[FilesClass alloc] init];
     
     //MOVIE PLAYER
     moviePlayer = [[MovieClass alloc] init];
+    
+    //MOVIE PLAYER
+    webPlayer = [[WebClass alloc] init];
+    
+    //MOVIE PLAYER
+    textPlayer = [[TextClass alloc] init];
     
     //INTERFACE CTRL
     //interFace = [[InterfaceClass alloc] initWithTabBar:tabBarController];
@@ -58,8 +66,8 @@
     //[interFace infoMovie: @""];
     
     //APP START
-    //[runMachine start];
-    //[checkMachine start];
+    [runMachine start];
+    [checkMachine start];
     
     //SEND INFO
     //[comPort sendInfo];

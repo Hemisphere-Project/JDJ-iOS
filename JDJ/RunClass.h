@@ -13,19 +13,13 @@
     NSTimer *timerRunner;
     
     BOOL playmovie;
-    BOOL stopmovie;
-    
-    BOOL gomute;
-    BOOL gounmute;
-    BOOL govolume;
-    int  newvolume;
-    
-    BOOL gomessage;
+    BOOL playweb;
+    BOOL playtext;
+    BOOL stopall;
 
-    NSString* message;
 }
 
-- (void) dispatch:(NSString*) rcvCommand;
+- (void) dispatch:(NSDictionary*) task;
 
 - (void) start;
 - (void) beat;

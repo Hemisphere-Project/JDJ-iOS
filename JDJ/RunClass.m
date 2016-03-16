@@ -22,80 +22,68 @@
 }
 
 //###########################################################
+// UTILITIES
+
+- (BOOL) notNull: (NSObject*) obj {
+    if ([obj isEqual:[NSNull null]]) return NO;
+    else return (obj != nil);
+}
+
+//###########################################################
 // DISPATCH RECIEVED COMMANDS
 
 // Dispatch recieved orders : some actions can be performed directly
 // but some actions must be performed by the BEAT clocked function
-- (void) dispatch:(NSString*) rcvCommand {
-    //NSLog(rcvCommand);
-    if (rcvCommand == nil) return;
+- (void) dispatch:(NSDictionary*) task {
+    
+    NSLog(@"RUN: Dispatching action %@", task);
+    
+    NSString* action = [task objectForKey:@"action"];
+    if (![self notNull:action]) return NSLog(@"RUN: Action missing.. BREAK");
+    
+    NSString* engine = [task objectForKey:@"category"];
+    if (![self notNull:action]) return NSLog(@"RUN: Engine missing.. BREAK");
+    
+    NSNumber* atTime = [task objectForKey:@"atTime"];
+    if (![self notNull:atTime]) atTime = 0;
+    
+    NSString* payload = [task objectForKey:@"hls"];
+    if (![self notNull:payload]) payload = [task objectForKey:@"url"];
+    if (![self notNull:payload]) payload = @"";
+    
+    NSString* param1 = [task objectForKey:@"param1"];
+    if (![self notNull:param1]) param1 = @"";
+    
+    NSString* content = [task objectForKey:@"content"];
+    if (![self notNull:content]) content = @"";
     
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    NSArray *pieces = [rcvCommand componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if ([pieces count] < 1) return;
-    
-    NSString *command = [pieces objectAtIndex:0];
-    
-    NSMutableArray *orders;
-    orders = [NSMutableArray arrayWithArray: pieces];
-    [orders removeObjectAtIndex:0]; //remove command
-    
-    //DISPLAY MESSAGE
-    if ([command isEqualToString: @"/message"]) {
-        if ([orders count] >= 1)
-        {
-            message = [[orders componentsJoinedByString:@" "] copy];
-            gomessage=YES;
+    if ([action isEqualToString: @"play"])
+    {
+        
+        if ([engine isEqualToString: @"video"] || [engine isEqualToString: @"audio"]) {
+            [appDelegate.moviePlayer load: [payload copy] Mask:[engine isEqualToString: @"audio"] Time:atTime];
+            playmovie = TRUE;
         }
-    }
+        else if ([engine isEqualToString: @"web"]) {
+            [appDelegate.webPlayer load: [payload copy] Time:atTime];
+            playweb = TRUE;
+        }
+        else if ([engine isEqualToString: @"text"]) {
+            [appDelegate.textPlayer load: [content copy] Time:atTime];
+            playtext = TRUE;
+        }
+        else return NSLog(@"RUN: Unknown engine.. BREAK");
         
-    //LOAD & PLAY MOVIE
-    else if (([command isEqualToString: @"/loadmovie"]) || ([command isEqualToString: @"/playmovie"]) || ([command isEqualToString: @"/playstream"])) {
+    }
+    else if ([action isEqualToString: @"stop"]) {
         
-        if ([orders count] >= 1) [appDelegate.moviePlayer load: [[orders componentsJoinedByString:@" "] copy]];
-        else NSLog(@"dry playmovie");
-        playmovie = ([command isEqualToString: @"/playmovie"] || [command isEqualToString: @"/playstream"]);
+        stopall = TRUE;
+        
+        
     }
-    
-    //SKIP AT TIME
-    else if ([command isEqualToString: @"/attime"]) {
-        if ([orders count] >= 1) [appDelegate.moviePlayer skip:[[orders objectAtIndex:0] intValue]];
-    }
-    
-    //STOP MOVIE
-    else if ([command isEqualToString: @"/stopmovie"]) {
-        stopmovie = YES;
-    }
-    
-    //LOOP
-    else if ([command isEqualToString: @"/loop"]) {
-        [appDelegate.moviePlayer loopMedia:TRUE];
-    }
-    
-    //UNPAUSE
-    else if ([command isEqualToString: @"/unloop"]) {
-        [appDelegate.moviePlayer loopMedia:FALSE];
-    }
-    
-    //PAUSE
-    else if ([command isEqualToString: @"/pause"]) {
-        [appDelegate.moviePlayer pause];
-    }
-    
-    //UNPAUSE
-    else if ([command isEqualToString: @"/unpause"]) {
-        [appDelegate.moviePlayer unpause];
-    }
-    
-    //MUTE
-    else if ([command isEqualToString: @"/mute"]) gomute = YES;
-    
-    //UNMUTE
-    else if ([command isEqualToString: @"/unmute"]) gounmute = YES;
-    
-    //UNKNOW ORDER
-    //else [appDelegate.comPort sendError:command];
+    else return NSLog(@"RUN: Unknown action.. BREAK");
     
 }
 
@@ -118,34 +106,48 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     //SCHEDULED ORDERS
-    //play movie
-    if (playmovie) [appDelegate.moviePlayer play];
+    if (playmovie || playweb || playtext) stopall = TRUE;
     
     //stop movie
-    if (stopmovie) [appDelegate.moviePlayer stop];
+    if (stopall) {
+        [appDelegate.moviePlayer stop];
+        [appDelegate.webPlayer stop];
+        [appDelegate.textPlayer stop];
+        NSLog(@"RUN: All stop");
+    }
     
-    //volume
-    //if (gomute) [appDelegate.disPlay mute:YES];
-    //if (gounmute) [appDelegate.disPlay mute:NO];
+    //play movie
+    if (playmovie) {
+        [appDelegate.moviePlayer play];
+        NSLog(@"RUN: Movie play");
+    }
     
-    //don't execute video related order if no screen
-    //if (![[appDelegate.disPlay resolution]  isEqual: @"noscreen"])
+    //play web
+    if (playweb) {
+        [appDelegate.webPlayer play];
+        NSLog(@"RUN: Web play");
+    }
+    
+    //play text
+    if (playtext) {
+        [appDelegate.textPlayer play];
+        NSLog(@"RUN: Text play");
+    }
     
     //IMPORTANT : if use of a new command BOOL, don't forget to register it in clear function !!!!
     [self clear];
 }
 
+
+
 //clear pennding actions
 - (void) clear {
     
     playmovie = NO;
-    stopmovie = NO;
+    playweb = NO;
+    playtext = NO;
+    stopall = NO;
     
-    gomute = NO;
-    gounmute = NO;
-    govolume = NO;
-    newvolume = 0;
-    gomessage = NO;
 }
 
 

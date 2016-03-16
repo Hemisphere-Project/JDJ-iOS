@@ -16,7 +16,10 @@
     
     //views
     UIView *movieview;
+    UIView *webview;
+    UIView *textview;
     UIView *musicview;
+    UIView *loaderview;
     
 }
 
@@ -24,13 +27,14 @@
 @property (nonatomic, retain) NSString *screenResolution;
 
 @property (nonatomic,retain) UIView *movieview;
-@property (nonatomic,retain) UIView *musicview;
+@property (nonatomic,retain) UIView *webview;
+@property (nonatomic,retain) UIView *textview;
 
 -(BOOL) checkScreen;
 -(void) createWindow;
 -(NSString*) resolution;
 
 -(void) music:(BOOL)musicMe;
--(BOOL) musiced;
+-(void) loader:(BOOL)loadMe;
 
 @end

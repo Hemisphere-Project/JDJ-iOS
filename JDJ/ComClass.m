@@ -226,7 +226,10 @@
     // ACTION
     NSString* task_action = [task objectForKey:@"action"];
     if ([self notNull:task_action]) {
-        NSLog(@"COM: Dispatching action %@", task);
+        //NSLog(@"COM: Dispatching action %@", task);
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.runMachine dispatch:task];
+        
     }
     else NSLog(@"COM: Action missing !");
 }

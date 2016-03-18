@@ -31,10 +31,8 @@
 		CA1A494D1C99CDE300939938 /* TextClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1A494C1C99CDE300939938 /* TextClass.m */; };
 		CAF4B2F21C3A9D390079DB5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F11C3A9D390079DB5A /* main.m */; };
 		CAF4B2F51C3A9D390079DB5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */; };
-		CAF4B2F81C3A9D390079DB5A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F71C3A9D390079DB5A /* ViewController.m */; };
 		CAF4B2FB1C3A9D390079DB5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF4B2F91C3A9D390079DB5A /* Main.storyboard */; };
 		CAF4B2FD1C3A9D390079DB5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF4B2FC1C3A9D390079DB5A /* Assets.xcassets */; };
-		CAF4B3001C3A9D390079DB5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF4B2FE1C3A9D390079DB5A /* LaunchScreen.storyboard */; };
 		CAF4B30F1C3AD19D0079DB5A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4B30E1C3AD19D0079DB5A /* AVFoundation.framework */; };
 		CAF4B3111C3AD2210079DB5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4B3101C3AD2210079DB5A /* UIKit.framework */; };
 		CAF4B3141C3AD3270079DB5A /* MovieClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B3131C3AD3270079DB5A /* MovieClass.m */; };
@@ -79,11 +77,8 @@
 		CAF4B2F11C3A9D390079DB5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CAF4B2F61C3A9D390079DB5A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CAF4B2F71C3A9D390079DB5A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CAF4B2FA1C3A9D390079DB5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAF4B2FC1C3A9D390079DB5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CAF4B2FF1C3A9D390079DB5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAF4B3011C3A9D390079DB5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAF4B30E1C3AD19D0079DB5A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CAF4B3101C3AD2210079DB5A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -176,11 +171,8 @@
 				CAF4B3071C3AD0550079DB5A /* Classes */,
 				CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */,
 				CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */,
-				CAF4B2F61C3A9D390079DB5A /* ViewController.h */,
-				CAF4B2F71C3A9D390079DB5A /* ViewController.m */,
 				CAF4B2F91C3A9D390079DB5A /* Main.storyboard */,
 				CAF4B2FC1C3A9D390079DB5A /* Assets.xcassets */,
-				CAF4B2FE1C3A9D390079DB5A /* LaunchScreen.storyboard */,
 				CAF4B3011C3A9D390079DB5A /* Info.plist */,
 				CAF4B2F01C3A9D390079DB5A /* Supporting Files */,
 			);
@@ -279,7 +271,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF4B3001C3A9D390079DB5A /* LaunchScreen.storyboard in Resources */,
 				CAF4B2FD1C3A9D390079DB5A /* Assets.xcassets in Resources */,
 				CAF4B2FB1C3A9D390079DB5A /* Main.storyboard in Resources */,
 			);
@@ -314,7 +305,6 @@
 				A4EED1194AD0C5BFCC97DAAA /* SocketAnyEvent.swift in Sources */,
 				4A0FD1E4963004B2B557BA0D /* SocketAckManager.swift in Sources */,
 				A9B31ED63C933215E04C2139 /* SocketAckEmitter.swift in Sources */,
-				CAF4B2F81C3A9D390079DB5A /* ViewController.m in Sources */,
 				CAF4B31B1C3ADCCA0079DB5A /* DisplayClass.m in Sources */,
 				CA105E461C74B17000F5A974 /* SettingsClass.m in Sources */,
 				CA1A494D1C99CDE300939938 /* TextClass.m in Sources */,
@@ -337,14 +327,6 @@
 				CAF4B2FA1C3A9D390079DB5A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CAF4B2FE1C3A9D390079DB5A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CAF4B2FF1C3A9D390079DB5A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -439,10 +421,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hmsphr.JDJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -453,10 +436,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hmsphr.JDJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

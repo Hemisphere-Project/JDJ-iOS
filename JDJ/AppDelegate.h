@@ -33,6 +33,8 @@
     TextClass *textPlayer;    //Web Player
     //InterfaceClass *interFace;  //User Interface
     
+    UIView* baseView;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

@@ -12,16 +12,15 @@
 
 @implementation DisplayClass
 
-@synthesize _secondWindow,screenResolution;
-@synthesize webview, movieview, textview;
+@synthesize mainView;
+@synthesize welcomeview, webview, movieview, textview, replayview;
 
 //###########################################################
 // DISPLAY : screen / views
 
 - (id) init
 {
-    screenResolution = @"noscreen";
-    
+    [self createViews];
     return [super init];
 }
 
@@ -32,7 +31,10 @@
 -(void) loader:(BOOL)loadMe {
     
     if (loaderview) {
-        if (loadMe) loaderview.alpha = 1;
+        if (loadMe) {
+            loaderview.alpha = 1;
+            [self replay:false];
+        }
         else loaderview.alpha = 0;
     }
 }
@@ -46,127 +48,115 @@
     }
 }
 
+//MUSIC SHUTTER
+-(void) replay:(BOOL)replayMe {
+    
+    if (replayview) {
+        if (replayMe) replayview.alpha = 1;
+        else {
+            replayview.alpha = 0;
+            for (id viewToRemove in [replayview subviews]){
+                if ([viewToRemove isMemberOfClass:[UIView class]])
+                    [viewToRemove removeFromSuperview];
+            }
+        }
+    }
+}
+
+
 
 //###########################################################
 //SCREEN MANAGER
 
-//get resolution
-- (NSString*) resolution {
-    return screenResolution;
-}
-
 //Create EXTERNAL window on SCREEN 1
--(void) createWindow {
+-(void) createViews {
     
-    if ([[UIScreen screens] count] < 2) return;
-    
+    // SELECT MAIN VIEW
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    mainView = [appDelegate.window.rootViewController view];
+    mainView.backgroundColor = [UIColor blackColor];
     
-    //select Screen
-    UIScreen*   secondScreen = [[UIScreen screens] objectAtIndex: 1];
+    //WELCOME VIEW
+    welcomeview = [[UIView alloc] initWithFrame:mainView.bounds];
+    welcomeview.backgroundColor = [UIColor clearColor];
+    welcomeview.alpha=1;
+    [mainView addSubview:welcomeview];
     
-    //create WINDOW (full sized for second screen)
-    _secondWindow = [[UIWindow alloc] initWithFrame:secondScreen.bounds];
+        UILabel* welcomelabel = [ [UILabel alloc ] initWithFrame:welcomeview.frame ];
+        welcomelabel.textAlignment =  NSTextAlignmentCenter;
+        welcomelabel.textColor = [UIColor whiteColor];
+        welcomelabel.backgroundColor = [UIColor clearColor];
+        welcomelabel.font = [UIFont fontWithName:@"Arial" size:(20.0)];
+        welcomelabel.numberOfLines = 0;
+        welcomelabel.text = @"Journal d'un seul Jour";
     
-    //ATTACH TO CURRENT ACTIVE SCREEN
-    _secondWindow.screen = secondScreen;
-    
-    // Add a black background to the window
-    UIView* backField = [[UIView alloc] initWithFrame:secondScreen.bounds];
-    backField.backgroundColor = [UIColor blackColor];
-    [_secondWindow addSubview:backField];
+        //push to View
+        [welcomeview addSubview:welcomelabel];
     
     //MOVIE PLAYER
-    movieview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    movieview = [[UIView alloc] initWithFrame:mainView.bounds];
     movieview.backgroundColor = [UIColor clearColor];
     movieview.alpha=1;
-    [_secondWindow addSubview:movieview];
+    [mainView addSubview:movieview];
     
         //Attach PLAYER subviews
         [movieview addSubview: appDelegate.moviePlayer.movie1view];
-    
-        //Resize PLAYER subviews
-        CGRect frame = movieview.frame;
-        appDelegate.moviePlayer.movie1view.frame = frame;
+        appDelegate.moviePlayer.movie1view.frame = movieview.frame;
     
     //AUDIO MASK
     //Create Masks (musicview)
-    musicview = [[UIView alloc] initWithFrame:secondScreen.bounds];
-    musicview.backgroundColor = [UIColor greenColor];
+    musicview = [[UIView alloc] initWithFrame:mainView.bounds];
+    musicview.backgroundColor = [UIColor clearColor];
     musicview.alpha=0;
-    [_secondWindow addSubview:musicview];
+    [mainView addSubview:musicview];
+    
+        UILabel* musiclabel = [ [UILabel alloc ] initWithFrame:musicview.frame ];
+        musiclabel.textAlignment =  NSTextAlignmentCenter;
+        musiclabel.textColor = [UIColor blackColor];
+        musiclabel.backgroundColor = [UIColor greenColor];
+        musiclabel.font = [UIFont fontWithName:@"Arial" size:(20.0)];
+        musiclabel.numberOfLines = 0;
+        musiclabel.text = @"Music Player";
+    
+        //push to View
+        [musicview addSubview:musiclabel];
     
     //WEB PLAYER
-    webview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    webview = [[UIView alloc] initWithFrame:mainView.bounds];
     webview.backgroundColor = [UIColor clearColor];
     webview.alpha=1;
-    [_secondWindow addSubview:webview];
+    [mainView addSubview:webview];
     
         //Attach PLAYER subviews
         [webview addSubview: appDelegate.webPlayer.webview];
-    
-        //Resize PLAYER subviews
-        CGRect frame2 = webview.frame;
-        appDelegate.webPlayer.webview.frame = frame2;
+        appDelegate.webPlayer.webview.frame = webview.frame;
     
     //TEXT PLAYER
-    textview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    textview = [[UIView alloc] initWithFrame:mainView.bounds];
     textview.backgroundColor = [UIColor clearColor];
     textview.alpha=1;
-    [_secondWindow addSubview:textview];
+    [mainView addSubview:textview];
     
         //Attach PLAYER subviews
         [textview addSubview: appDelegate.textPlayer.textview];
-    
-        //Resize PLAYER subviews
-        CGRect frame3 = textview.frame;
-        appDelegate.textPlayer.textview.frame = frame3;
+        appDelegate.textPlayer.textview.frame = textview.frame;
     
     //LOADER MASK
     //Create Masks (loaderview)
-    loaderview = [[UIView alloc] initWithFrame:secondScreen.bounds];
+    loaderview = [[UIView alloc] initWithFrame:mainView.bounds];
     loaderview.backgroundColor = [UIColor blueColor];
     loaderview.alpha=0;
-    [_secondWindow addSubview:loaderview];
+    [mainView addSubview:loaderview];
     
     
-    // Go ahead and show the window.
-    _secondWindow.hidden = NO;
-    
+    //REPLAY MASK
+    //Create Masks (musicview)
+    replayview = [[UIView alloc] initWithFrame:mainView.bounds];
+    replayview.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    replayview.alpha=0;
+    [mainView addSubview:replayview];
     //init View visibility
     //[self music: VIEW_MUSIC];
-}
-
-//check screen
-- (BOOL) checkScreen{
-    
-    //last known resolution
-    NSString* newRes = [screenResolution copy];
-    
-    
-    //external screen plugged
-    if ([[UIScreen screens] count] > 1)
-    {
-        //new external screen
-        if ([newRes isEqualToString: @"noscreen"])
-        {
-            //initialize window
-            if (!_secondWindow) [self createWindow];
-            
-            //get resolution
-            newRes =  [NSString stringWithFormat: @"%.0f x %.0f",_secondWindow.bounds.size.width,_secondWindow.bounds.size.height];
-        }
-    }
-    //external screen removed
-    else if (![newRes isEqualToString: @"noscreen"]) newRes = @"noscreen";
-    
-    //if resolution changed, send TRUE
-    if (![newRes isEqualToString: screenResolution]) {
-        screenResolution = [newRes copy];
-        return TRUE;
-    }
-    
-    return FALSE;
 }
 
 

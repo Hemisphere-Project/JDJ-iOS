@@ -33,8 +33,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //OBJECTS
-    //DISPLAY
-    disPlay = [[DisplayClass alloc] init];
     
     //COMMUNICATION
     comPort = [[ComClass alloc] init];
@@ -57,20 +55,12 @@
     //MOVIE PLAYER
     textPlayer = [[TextClass alloc] init];
     
-    //INTERFACE CTRL
-    //interFace = [[InterfaceClass alloc] initWithTabBar:tabBarController];
-    
-    //APP Info and States
-    //auto info
-    //[interFace infoState: @"starting"];
-    //[interFace infoMovie: @""];
+    //DISPLAY
+    disPlay = [[DisplayClass alloc] init];
     
     //APP START
     [runMachine start];
     [checkMachine start];
-    
-    //SEND INFO
-    //[comPort sendInfo];
     
     //end of startup
     return YES;

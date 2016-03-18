@@ -11,30 +11,30 @@
 
 @interface DisplayClass : NSObject {
     
-    UIWindow *_secondWindow;
-    NSString *screenResolution;
+    UIView *mainView;
     
     //views
+    UIView *welcomeview;
     UIView *movieview;
     UIView *webview;
     UIView *textview;
     UIView *musicview;
     UIView *loaderview;
+    UIView *replayview;
     
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *_secondWindow;
-@property (nonatomic, retain) NSString *screenResolution;
-
+@property (nonatomic,retain) UIView *mainView;
+@property (nonatomic,retain) UIView *welcomeview;
 @property (nonatomic,retain) UIView *movieview;
 @property (nonatomic,retain) UIView *webview;
 @property (nonatomic,retain) UIView *textview;
+@property (nonatomic,retain) UIView *replayview;
 
--(BOOL) checkScreen;
--(void) createWindow;
--(NSString*) resolution;
+-(void) createViews;
 
 -(void) music:(BOOL)musicMe;
 -(void) loader:(BOOL)loadMe;
+-(void) replay:(BOOL)replayMe;
 
 @end

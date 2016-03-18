@@ -40,7 +40,7 @@
 // Runner command executed on each timer beat
 - (void) beat{
     
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     
     //CHECK IF WIFI CONNECTED
     //[appDelegate.interFace infoIP: [appDelegate.comPort getIPAddress]];
@@ -68,14 +68,7 @@
     }
     else [appDelegate.interFace infoLink: @"OK"];
     if (lastSync < 1000) lastSync++; //security increaser
-    */
     
-    //CHECK IF SCREEN CHANGED
-    if ([appDelegate.disPlay checkScreen]) {
-        if ([[appDelegate.disPlay resolution] isEqualToString: @"noscreen"]) [appDelegate.moviePlayer stop];
-    }
-    
-    /*
     //UPDATE PLAYER STATE
     if ([appDelegate.live2Player isLive]) {
         [appDelegate.interFace infoState:@"live"];

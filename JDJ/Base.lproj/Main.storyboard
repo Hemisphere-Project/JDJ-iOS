@@ -13,55 +13,11 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-dy-DVJ">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal d'un seul Jour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiQ-J5-3wi">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RtN-dy-DVJ" firstAttribute="top" secondItem="aiQ-J5-3wi" secondAttribute="bottom" constant="14" id="CFW-8Y-bYr"/>
-                            <constraint firstItem="RtN-dy-DVJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LGh-0c-vbi"/>
-                            <constraint firstItem="RtN-dy-DVJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aAf-Y1-e5d"/>
-                            <constraint firstItem="aiQ-J5-3wi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jCQ-nx-QmM"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="RtN-dy-DVJ"/>
-                                <exclude reference="aiQ-J5-3wi"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="CFW-8Y-bYr"/>
-                                <exclude reference="LGh-0c-vbi"/>
-                                <exclude reference="aAf-Y1-e5d"/>
-                                <exclude reference="jCQ-nx-QmM"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact">
-                            <mask key="subviews">
-                                <include reference="RtN-dy-DVJ"/>
-                                <include reference="aiQ-J5-3wi"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="CFW-8Y-bYr"/>
-                                <include reference="LGh-0c-vbi"/>
-                                <include reference="aAf-Y1-e5d"/>
-                                <include reference="jCQ-nx-QmM"/>
-                            </mask>
-                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>

@@ -16,7 +16,6 @@
     UIView *movie1view;
     
     BOOL paused;
-    BOOL autoloop;
     int volume;
     BOOL mute;
     
@@ -32,10 +31,8 @@
 -(void) stop;
 -(void) start;
 -(void) restart;
+-(void) replay;
 -(void) movieDidEnd:(NSNotification *)notification;
--(void) loopMedia:(BOOL)loop;
--(void) switchLoop;
--(BOOL) isLoop;
 -(void) pause;
 -(void) muteSound:(BOOL)muteMe;
 -(void) setVolume:(int)vol;

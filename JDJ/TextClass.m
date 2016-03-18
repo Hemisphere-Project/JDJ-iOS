@@ -45,7 +45,7 @@
     
     //Create UILabel
     player = [ [UILabel alloc ] initWithFrame:textview.frame ];
-    player.textAlignment =  UITextAlignmentCenter;
+    player.textAlignment =  NSTextAlignmentCenter;
     player.textColor = [UIColor whiteColor];
     player.backgroundColor = [UIColor blackColor];
     player.font = [UIFont fontWithName:@"Arial" size:(20.0)];

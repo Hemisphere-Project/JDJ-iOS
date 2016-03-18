@@ -28,7 +28,6 @@
     movie1view.backgroundColor = [UIColor clearColor];
     movie1view.alpha=1;
     
-    [self loopMedia:FALSE];
     [self setVolume:100];
     [self muteSound:FALSE];
     
@@ -55,6 +54,9 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     if (movieLoad == nil) return;
+    
+    //Loader view
+    [appDelegate.disPlay loader:TRUE];
     
     //if same movie just rewind
     if ([movieCurrent isEqualToString:movieLoad]) [self restart];
@@ -102,18 +104,17 @@
 
 //MOVIE END OBSEREVER (auto loop)
 - (void)movieDidEnd:(NSNotification *)notification {
-    if (autoloop)
-    {
-        AVPlayerItem *p = [notification object];
-        [p seekToTime:kCMTimeZero];
-    }
-    else [self stop];
+    [self replay];
 }
 
 //START
 -(void) start {
     
     if (![self isPlaying]) return;
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.disPlay replay:FALSE];
+    [appDelegate.disPlay loader:FALSE];
     
     [player play];
     paused = NO;
@@ -125,6 +126,23 @@
     [self start];
 }
 
+//REPLAY: show replay mask
+-(void) replay {
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"replay.png"]];
+    [imageView.layer setBorderWidth: 0];
+    [appDelegate.disPlay.replayview addSubview:imageView];
+    imageView.center = CGPointMake(appDelegate.disPlay.replayview.frame.size.width  / 2,
+                                     appDelegate.disPlay.replayview.frame.size.height / 2);
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(restart)];
+    singleTap.numberOfTapsRequired = 1;
+    [imageView setUserInteractionEnabled:YES];
+    [imageView addGestureRecognizer:singleTap];
+    
+    [appDelegate.disPlay replay:TRUE];
+}
+
 //STOP
 -(void) stop{
     
@@ -133,6 +151,7 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     [appDelegate.disPlay music:FALSE];
+    [appDelegate.disPlay replay:FALSE];
     [appDelegate.disPlay loader:FALSE];
     
     paused = NO;
@@ -140,21 +159,6 @@
     if ([movieLoad isEqualToString:@"*"] && (movieCurrent != nil)) movieLoad = [movieCurrent copy];
     movieCurrent = nil;
     
-}
-
-//LOOP
--(void) loopMedia:(BOOL)loop{
-    autoloop = loop;
-}
-
-//LOOP
--(BOOL) isLoop{
-    return autoloop;
-}
-
-//SWITCH LOOP
--(void) switchLoop{
-    [self loopMedia:!autoloop];
 }
 
 //MUTE

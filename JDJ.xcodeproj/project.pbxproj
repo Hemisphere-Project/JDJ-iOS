@@ -283,7 +283,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA1A49441C99A96700939938 /* CheckerClass.m in Sources */,
 				BEBC1AFA136E974B70455751 /* WebSocket.swift in Sources */,
 				501EF4ABCB34C7A5E10EB8B5 /* SwiftRegex.swift in Sources */,
 				6BEC4B7915B92FDF4A2FAAE6 /* SocketTypes.swift in Sources */,
@@ -305,6 +304,7 @@
 				A4EED1194AD0C5BFCC97DAAA /* SocketAnyEvent.swift in Sources */,
 				4A0FD1E4963004B2B557BA0D /* SocketAckManager.swift in Sources */,
 				A9B31ED63C933215E04C2139 /* SocketAckEmitter.swift in Sources */,
+				CA1A49441C99A96700939938 /* CheckerClass.m in Sources */,
 				CAF4B31B1C3ADCCA0079DB5A /* DisplayClass.m in Sources */,
 				CA105E461C74B17000F5A974 /* SettingsClass.m in Sources */,
 				CA1A494D1C99CDE300939938 /* TextClass.m in Sources */,
@@ -425,6 +425,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hmsphr.JDJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -440,6 +441,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hmsphr.JDJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

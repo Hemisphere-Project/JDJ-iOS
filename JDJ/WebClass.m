@@ -45,9 +45,6 @@
 //PLAY
 -(void) play{
     
-    
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
     if (urlLoad == nil) return;
     
     //if same url just reload

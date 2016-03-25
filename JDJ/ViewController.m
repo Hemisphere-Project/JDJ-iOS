@@ -18,10 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Stop edit when tap outside
     UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc]
                                       initWithTarget:self action:@selector(handleSingleTap:)];
     tapper.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapper];
+    
+    //Show list
+    self.showList  = [[NSArray alloc] initWithObjects:@"Blue",@"Green",@"Orange",@"Purple",@"Red",@"Yellow" , nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +40,33 @@
 - (void)handleSingleTap:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
+}
+
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    return [self.showList count];
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.text = [self.showList objectAtIndex:row];
+    label.textColor = [UIColor whiteColor];
+    label.font=[label.font fontWithSize:22];
+    [label setTextAlignment:UITextAlignmentCenter];
+    return label;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
+{
+    
 }
 
 /*

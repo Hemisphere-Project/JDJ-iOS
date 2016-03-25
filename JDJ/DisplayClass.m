@@ -13,7 +13,7 @@
 @implementation DisplayClass
 
 @synthesize mainView;
-@synthesize welcomeview, webview, movieview, textview, replayview;
+@synthesize replayview;
 
 //###########################################################
 // DISPLAY : screen / views
@@ -28,10 +28,10 @@
 //VIEWS MANAGER
 
 //LOADER SHUTTER
--(void) loader:(BOOL)loadMe {
+-(void) loader:(BOOL)show {
     
     if (loaderview) {
-        if (loadMe) {
+        if (show) {
             loaderview.alpha = 1;
             [self replay:false];
         }
@@ -39,20 +39,47 @@
     }
 }
 
-//MUSIC SHUTTER
--(void) music:(BOOL)musicMe {
+//MOVIE VIEW
+-(void) movie:(BOOL)show {
     
-    if (musicview) {
-        if (musicMe) musicview.alpha = 1;
-        else musicview.alpha = 0;
+    if (movieview) {
+        if (show) movieview.alpha = 1;
+        else movieview.alpha = 0;
     }
 }
 
 //MUSIC SHUTTER
--(void) replay:(BOOL)replayMe {
+-(void) music:(BOOL)show {
+    
+    if (musicview) {
+        if (show) musicview.alpha = 1;
+        else musicview.alpha = 0;
+    }
+}
+
+//WEB VIEW
+-(void) web:(BOOL)show {
+    
+    if (webview) {
+        if (show) webview.alpha = 1;
+        else webview.alpha = 0;
+    }
+}
+
+//MOVIE VIEW
+-(void) text:(BOOL)show {
+    
+    if (textview) {
+        if (show) textview.alpha = 1;
+        else textview.alpha = 0;
+    }
+}
+
+//MUSIC SHUTTER
+-(void) replay:(BOOL)show {
     
     if (replayview) {
-        if (replayMe) replayview.alpha = 1;
+        if (show) replayview.alpha = 1;
         else {
             replayview.alpha = 0;
             for (id viewToRemove in [replayview subviews]){
@@ -76,27 +103,16 @@
     mainView = [appDelegate.window.rootViewController view];
     mainView.backgroundColor = [UIColor blackColor];
     
-    //WELCOME VIEW
-    welcomeview = [[UIView alloc] initWithFrame:mainView.bounds];
-    welcomeview.backgroundColor = [UIColor clearColor];
-    welcomeview.alpha=1;
-    [mainView addSubview:welcomeview];
-    
-        UILabel* welcomelabel = [ [UILabel alloc ] initWithFrame:welcomeview.frame ];
-        welcomelabel.textAlignment =  NSTextAlignmentCenter;
-        welcomelabel.textColor = [UIColor whiteColor];
-        welcomelabel.backgroundColor = [UIColor clearColor];
-        welcomelabel.font = [UIFont fontWithName:@"Arial" size:(20.0)];
-        welcomelabel.numberOfLines = 0;
-        welcomelabel.text = @"Journal d'un seul Jour";
-    
-        //push to View
-        [welcomeview addSubview:welcomelabel];
+    //SETTINGS
+    /*NSArray *xib = [[NSBundle mainBundle] loadNibNamed:@"SettingsView" owner:self options:nil];
+    settingsview = [xib objectAtIndex:0];
+    settingsview.frame = mainView.frame;
+    [mainView addSubview:settingsview];*/
     
     //MOVIE PLAYER
     movieview = [[UIView alloc] initWithFrame:mainView.bounds];
-    movieview.backgroundColor = [UIColor clearColor];
-    movieview.alpha=1;
+    movieview.backgroundColor = [UIColor blackColor];
+    movieview.alpha=0;
     [mainView addSubview:movieview];
     
         //Attach PLAYER subviews
@@ -106,7 +122,7 @@
     //AUDIO MASK
     //Create Masks (musicview)
     musicview = [[UIView alloc] initWithFrame:mainView.bounds];
-    musicview.backgroundColor = [UIColor clearColor];
+    musicview.backgroundColor = [UIColor blackColor];
     musicview.alpha=0;
     [mainView addSubview:musicview];
     
@@ -123,8 +139,8 @@
     
     //WEB PLAYER
     webview = [[UIView alloc] initWithFrame:mainView.bounds];
-    webview.backgroundColor = [UIColor clearColor];
-    webview.alpha=1;
+    webview.backgroundColor = [UIColor blackColor];
+    webview.alpha=0;
     [mainView addSubview:webview];
     
         //Attach PLAYER subviews
@@ -133,8 +149,8 @@
     
     //TEXT PLAYER
     textview = [[UIView alloc] initWithFrame:mainView.bounds];
-    textview.backgroundColor = [UIColor clearColor];
-    textview.alpha=1;
+    textview.backgroundColor = [UIColor blackColor];
+    textview.alpha=0;
     [mainView addSubview:textview];
     
         //Attach PLAYER subviews

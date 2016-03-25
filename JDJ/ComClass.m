@@ -30,7 +30,7 @@
     
     // SOCKET
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@:%d", SERVER_URL, SERVER_PORT_CMD]];
-    socket = [[SocketIOClient alloc] initWithSocketURL:url options:@{@"forcePolling": @NO, @"log": @NO}];
+    socket = [[SocketIOClient alloc] initWithSocketURL:url options:@{@"forcePolling": @NO, @"log": @NO, @"secure": @YES}];
     
     // CONNECT
     [socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {

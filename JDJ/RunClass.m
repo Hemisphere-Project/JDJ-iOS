@@ -106,11 +106,7 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     //SCHEDULED ORDERS
-    if (playmovie || playweb || playtext) {
-        appDelegate.disPlay.welcomeview.alpha = 0;
-        stopall = TRUE;
-    }
-    else if (stopall) appDelegate.disPlay.welcomeview.alpha = 1;
+    if (playmovie || playweb || playtext) stopall = TRUE;
     
     //stop movie
     if (stopall) {

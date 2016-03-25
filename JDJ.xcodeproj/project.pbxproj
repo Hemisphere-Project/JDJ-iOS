@@ -25,10 +25,11 @@
 		BEBC1AFA136E974B70455751 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB23CF503E255906A365CE89 /* WebSocket.swift */; };
 		CA105E3D1C74728E00F5A974 /* RunClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA105E3C1C74728E00F5A974 /* RunClass.m */; };
 		CA105E401C74794E00F5A974 /* ComClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA105E3F1C74794E00F5A974 /* ComClass.m */; };
-		CA105E461C74B17000F5A974 /* SettingsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA105E451C74B17000F5A974 /* SettingsClass.m */; };
 		CA1A49441C99A96700939938 /* CheckerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1A49431C99A96700939938 /* CheckerClass.m */; };
 		CA1A49471C99BC8C00939938 /* WebClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1A49461C99BC8C00939938 /* WebClass.m */; };
 		CA1A494D1C99CDE300939938 /* TextClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1A494C1C99CDE300939938 /* TextClass.m */; };
+		CA3430C01CA58F6200A940A4 /* SettingsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3430BF1CA58F6200A940A4 /* SettingsClass.m */; };
+		CA3430CD1CA5949C00A940A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3430CC1CA5949C00A940A4 /* ViewController.m */; };
 		CAF4B2F21C3A9D390079DB5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F11C3A9D390079DB5A /* main.m */; };
 		CAF4B2F51C3A9D390079DB5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */; };
 		CAF4B2FB1C3A9D390079DB5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF4B2F91C3A9D390079DB5A /* Main.storyboard */; };
@@ -65,14 +66,16 @@
 		CA105E3C1C74728E00F5A974 /* RunClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunClass.m; sourceTree = "<group>"; };
 		CA105E3E1C74794E00F5A974 /* ComClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComClass.h; sourceTree = "<group>"; };
 		CA105E3F1C74794E00F5A974 /* ComClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComClass.m; sourceTree = "<group>"; };
-		CA105E441C74B17000F5A974 /* SettingsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsClass.h; sourceTree = "<group>"; };
-		CA105E451C74B17000F5A974 /* SettingsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsClass.m; sourceTree = "<group>"; };
 		CA1A49421C99A96700939938 /* CheckerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckerClass.h; sourceTree = "<group>"; };
 		CA1A49431C99A96700939938 /* CheckerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckerClass.m; sourceTree = "<group>"; };
 		CA1A49451C99BC8C00939938 /* WebClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebClass.h; sourceTree = "<group>"; };
 		CA1A49461C99BC8C00939938 /* WebClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebClass.m; sourceTree = "<group>"; };
 		CA1A494B1C99CDE300939938 /* TextClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextClass.h; sourceTree = "<group>"; };
 		CA1A494C1C99CDE300939938 /* TextClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextClass.m; sourceTree = "<group>"; };
+		CA3430BE1CA58F6200A940A4 /* SettingsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsClass.h; sourceTree = "<group>"; };
+		CA3430BF1CA58F6200A940A4 /* SettingsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsClass.m; sourceTree = "<group>"; };
+		CA3430CB1CA5949C00A940A4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CA3430CC1CA5949C00A940A4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CAF4B2ED1C3A9D390079DB5A /* JDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF4B2F11C3A9D390079DB5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +149,13 @@
 			name = "socket.io-client-swift";
 			sourceTree = "<group>";
 		};
+		CA3430AC1CA5868300A940A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		CAF4B2E41C3A9D390079DB5A = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,8 @@
 		CAF4B2EF1C3A9D390079DB5A /* JDJ */ = {
 			isa = PBXGroup;
 			children = (
+				CAF4B3151C3AD4F50079DB5A /* ConfigConst.h */,
+				CA3430AC1CA5868300A940A4 /* Views */,
 				CAF4B3071C3AD0550079DB5A /* Classes */,
 				CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */,
 				CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */,
@@ -175,6 +187,8 @@
 				CAF4B2FC1C3A9D390079DB5A /* Assets.xcassets */,
 				CAF4B3011C3A9D390079DB5A /* Info.plist */,
 				CAF4B2F01C3A9D390079DB5A /* Supporting Files */,
+				CA3430CB1CA5949C00A940A4 /* ViewController.h */,
+				CA3430CC1CA5949C00A940A4 /* ViewController.m */,
 			);
 			path = JDJ;
 			sourceTree = "<group>";
@@ -190,7 +204,6 @@
 		CAF4B3071C3AD0550079DB5A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CAF4B3151C3AD4F50079DB5A /* ConfigConst.h */,
 				CAF4B3121C3AD3270079DB5A /* MovieClass.h */,
 				CAF4B3131C3AD3270079DB5A /* MovieClass.m */,
 				CAF4B3161C3AD76D0079DB5A /* FilesClass.h */,
@@ -201,14 +214,14 @@
 				CA105E3C1C74728E00F5A974 /* RunClass.m */,
 				CA105E3E1C74794E00F5A974 /* ComClass.h */,
 				CA105E3F1C74794E00F5A974 /* ComClass.m */,
-				CA105E441C74B17000F5A974 /* SettingsClass.h */,
-				CA105E451C74B17000F5A974 /* SettingsClass.m */,
 				CA1A49421C99A96700939938 /* CheckerClass.h */,
 				CA1A49431C99A96700939938 /* CheckerClass.m */,
 				CA1A49451C99BC8C00939938 /* WebClass.h */,
 				CA1A49461C99BC8C00939938 /* WebClass.m */,
 				CA1A494B1C99CDE300939938 /* TextClass.h */,
 				CA1A494C1C99CDE300939938 /* TextClass.m */,
+				CA3430BE1CA58F6200A940A4 /* SettingsClass.h */,
+				CA3430BF1CA58F6200A940A4 /* SettingsClass.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -283,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3430CD1CA5949C00A940A4 /* ViewController.m in Sources */,
 				BEBC1AFA136E974B70455751 /* WebSocket.swift in Sources */,
 				501EF4ABCB34C7A5E10EB8B5 /* SwiftRegex.swift in Sources */,
 				6BEC4B7915B92FDF4A2FAAE6 /* SocketTypes.swift in Sources */,
@@ -303,10 +317,10 @@
 				176723D314A413E73EBBA785 /* SocketClientSpec.swift in Sources */,
 				A4EED1194AD0C5BFCC97DAAA /* SocketAnyEvent.swift in Sources */,
 				4A0FD1E4963004B2B557BA0D /* SocketAckManager.swift in Sources */,
+				CA3430C01CA58F6200A940A4 /* SettingsClass.m in Sources */,
 				A9B31ED63C933215E04C2139 /* SocketAckEmitter.swift in Sources */,
 				CA1A49441C99A96700939938 /* CheckerClass.m in Sources */,
 				CAF4B31B1C3ADCCA0079DB5A /* DisplayClass.m in Sources */,
-				CA105E461C74B17000F5A974 /* SettingsClass.m in Sources */,
 				CA1A494D1C99CDE300939938 /* TextClass.m in Sources */,
 				CA1A49471C99BC8C00939938 /* WebClass.m in Sources */,
 				CA105E401C74794E00F5A974 /* ComClass.m in Sources */,

@@ -16,7 +16,7 @@
 #define APP_VERSION         @"0.1.0"
 
 //SERVER
-#define SERVER_URL          @"http://app.journaldunseuljour.fr"
+#define SERVER_URL          @"https://app.journaldunseuljour.fr"
 #define SERVER_PORT_CMD     8081
 #define SERVER_PORT_TIME    8082
 

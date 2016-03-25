@@ -69,12 +69,19 @@
         //push to View
         [webview addSubview:player];
         
+        //show
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.disPlay web:TRUE];
+        
         urlCurrent = [urlLoad copy];
     }
 }
 
 //STOP
 -(void) stop{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.disPlay web:FALSE];
+    
     NSArray *toRemove = [webview subviews];
     for (UIView *v in toRemove) [v removeFromSuperview];
     player = nil;

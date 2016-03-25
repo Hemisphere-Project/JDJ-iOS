@@ -14,7 +14,7 @@
     UIView *mainView;
     
     //views
-    UIView *welcomeview;
+    UIView *settingsview;
     UIView *movieview;
     UIView *webview;
     UIView *textview;
@@ -25,16 +25,15 @@
 }
 
 @property (nonatomic,retain) UIView *mainView;
-@property (nonatomic,retain) UIView *welcomeview;
-@property (nonatomic,retain) UIView *movieview;
-@property (nonatomic,retain) UIView *webview;
-@property (nonatomic,retain) UIView *textview;
 @property (nonatomic,retain) UIView *replayview;
 
 -(void) createViews;
 
--(void) music:(BOOL)musicMe;
--(void) loader:(BOOL)loadMe;
--(void) replay:(BOOL)replayMe;
+-(void) movie:(BOOL)show;
+-(void) music:(BOOL)show;
+-(void) text:(BOOL)show;
+-(void) web:(BOOL)show;
+-(void) loader:(BOOL)show;
+-(void) replay:(BOOL)show;
 
 @end

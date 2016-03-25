@@ -98,6 +98,7 @@
         //let's play
         [self start];
         
+        [appDelegate.disPlay movie:TRUE];
         [appDelegate.disPlay music:audioMask];
     }
 }
@@ -146,10 +147,11 @@
 //STOP
 -(void) stop{
     
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.disPlay movie:FALSE];
     movie1view.layer.sublayers = nil;
     player = nil;
-    
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+
     [appDelegate.disPlay music:FALSE];
     [appDelegate.disPlay replay:FALSE];
     [appDelegate.disPlay loader:FALSE];

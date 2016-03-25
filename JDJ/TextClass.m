@@ -54,10 +54,17 @@
     
     //push to View
     [textview addSubview:player];
+    
+    //show
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.disPlay text:TRUE];
 }
 
 //STOP
 -(void) stop{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate.disPlay text:FALSE];
+    
     NSArray *toRemove = [textview subviews];
     for (UIView *v in toRemove) [v removeFromSuperview];
     player = nil;

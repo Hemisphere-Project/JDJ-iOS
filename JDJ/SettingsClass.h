@@ -1,4 +1,4 @@
-//
+
 //  SettingsClass.h
 //  JDJ
 //
@@ -21,6 +21,3 @@
 + (void) setArray: (NSString*) key Value: (NSArray*) val;
 
 @end
-
-
-

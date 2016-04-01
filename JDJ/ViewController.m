@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ConfigConst.h"
 
 @interface ViewController ()
 
@@ -18,14 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Stop edit when tap outside
-    UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc]
-                                      initWithTarget:self action:@selector(handleSingleTap:)];
-    tapper.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapper];
+    self.versionNum.text = APP_VERSION;
+    [self updateAvailable:FALSE];
     
-    //Show list
-    self.showList  = [[NSArray alloc] initWithObjects:@"Blue",@"Green",@"Orange",@"Purple",@"Red",@"Yellow" , nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,37 +33,20 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *) sender
-{
-    [self.view endEditing:YES];
+- (void)updateAvailable:(BOOL)switcher {
+    if (switcher) {
+        self.updateText.text = @"Une mise à jour est disponible sur l'App Store..";
+        self.updateView.backgroundColor = [UIColor colorWithRed:0.882 green:0.251 blue:0.063 alpha:1];
+    }
+    else {
+        self.updateText.text = @"";
+        self.updateView.backgroundColor = [UIColor blackColor];
+    }
 }
 
-// returns the number of 'columns' to display.
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
 
-// returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
-{
-    return [self.showList count];
-}
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-    UILabel *label = [[UILabel alloc] init];
-    label.text = [self.showList objectAtIndex:row];
-    label.textColor = [UIColor whiteColor];
-    label.font=[label.font fontWithSize:22];
-    [label setTextAlignment:UITextAlignmentCenter];
-    return label;
-}
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
-{
-    
-}
 
 /*
 #pragma mark - Navigation
@@ -78,5 +57,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

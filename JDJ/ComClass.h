@@ -52,6 +52,7 @@
 @property (readwrite, retain) NSString* ipodName;
 
 - (void) storeTask: (NSMutableDictionary*) dict;
+- (void) doRegister: (NSString *)phone ShowID:(int) showid;
 - (void) processHello: (NSDictionary *) data;
 - (void) processCommand: (NSDictionary *) data;
 

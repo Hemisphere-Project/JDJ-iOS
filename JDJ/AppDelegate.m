@@ -24,7 +24,7 @@
 @synthesize moviePlayer;
 @synthesize webPlayer;
 @synthesize textPlayer;
-//@synthesize interFace;
+@synthesize mainController;
 
 //###########################################################
 //STARTUP
@@ -62,8 +62,15 @@
     [runMachine start];
     [checkMachine start];
     
+    //VIEW CONTROLLER
+    mainController = (ViewController*) self.window.rootViewController;
+    
     //end of startup
     return YES;
+}
+
+-(void) showSettings {
+    [mainController.SettingsBtn sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

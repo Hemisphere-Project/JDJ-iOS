@@ -30,6 +30,7 @@
 		CA1A494D1C99CDE300939938 /* TextClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1A494C1C99CDE300939938 /* TextClass.m */; };
 		CA3430C01CA58F6200A940A4 /* SettingsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3430BF1CA58F6200A940A4 /* SettingsClass.m */; };
 		CA3430CD1CA5949C00A940A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3430CC1CA5949C00A940A4 /* ViewController.m */; };
+		CA4508B11CAEE9EF00BB3ED2 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */; };
 		CAF4B2F21C3A9D390079DB5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F11C3A9D390079DB5A /* main.m */; };
 		CAF4B2F51C3A9D390079DB5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */; };
 		CAF4B2FB1C3A9D390079DB5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF4B2F91C3A9D390079DB5A /* Main.storyboard */; };
@@ -76,6 +77,8 @@
 		CA3430BF1CA58F6200A940A4 /* SettingsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsClass.m; sourceTree = "<group>"; };
 		CA3430CB1CA5949C00A940A4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CA3430CC1CA5949C00A940A4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CA4508AF1CAEE9EF00BB3ED2 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		CAF4B2ED1C3A9D390079DB5A /* JDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF4B2F11C3A9D390079DB5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				CAF4B2F01C3A9D390079DB5A /* Supporting Files */,
 				CA3430CB1CA5949C00A940A4 /* ViewController.h */,
 				CA3430CC1CA5949C00A940A4 /* ViewController.m */,
+				CA4508AF1CAEE9EF00BB3ED2 /* SettingsController.h */,
+				CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */,
 			);
 			path = JDJ;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				BEBC1AFA136E974B70455751 /* WebSocket.swift in Sources */,
 				501EF4ABCB34C7A5E10EB8B5 /* SwiftRegex.swift in Sources */,
 				6BEC4B7915B92FDF4A2FAAE6 /* SocketTypes.swift in Sources */,
+				CA4508B11CAEE9EF00BB3ED2 /* SettingsController.m in Sources */,
 				77392E97DA369168BD27F098 /* SocketStringReader.swift in Sources */,
 				CE7359A98A48984BF77A6EB3 /* SocketParsable.swift in Sources */,
 				D57DEC4C3CE6CB4B1CD2F8B0 /* SocketPacket.swift in Sources */,

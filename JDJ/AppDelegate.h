@@ -16,6 +16,7 @@
 #import "RunClass.h"
 #import "ComClass.h"
 #import "CheckerClass.h"
+#import "ViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     
@@ -33,11 +34,17 @@
     TextClass *textPlayer;    //Web Player
     //InterfaceClass *interFace;  //User Interface
     
+    //VIEW CONTROLLER
+    ViewController* mainController;
+    
     UIView* baseView;
     
 }
 
+-(void) showSettings;
+
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) ViewController *mainController;
 
 @property (nonatomic, retain) DisplayClass *disPlay;
 @property (nonatomic, retain) ComClass *comPort;

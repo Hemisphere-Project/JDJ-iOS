@@ -13,13 +13,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bienvenue dans le Journal d'un seul Jour !" textAlignment="center" minimumFontSize="17" id="Ht2-aE-dxT">
-                                <rect key="frame" x="20" y="216" width="528" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WtL-sW-zXu">
                                 <rect key="frame" x="183" y="144" width="97" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -40,18 +33,18 @@
                                     <segue destination="AuX-Ve-8r9" kind="modal" id="qMD-E4-wCu"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="Df2-Bo-atO">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" id="Df2-Bo-atO">
                                 <rect key="frame" x="0.0" y="297" width="568" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Une mise à jour est disponible ..." textAlignment="center" minimumFontSize="17" id="fWK-oO-c2Q">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Une mise à jour est disponible ..." textAlignment="center" minimumFontSize="17" id="fWK-oO-c2Q">
                                         <rect key="frame" x="20" y="-3" width="528" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.4.2" textAlignment="center" minimumFontSize="17" id="er1-mt-4C1">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0.0" textAlignment="center" minimumFontSize="17" id="er1-mt-4C1">
                                         <rect key="frame" x="529" y="3" width="39" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,12 +52,20 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.3411764706" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9137254901960784" green="0.3411764705882353" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jdj-logoB" id="z7O-Lt-Rfv">
                                 <rect key="frame" x="155" y="20" width="259" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bienvenue dans le Journal d'un Seul Jour ! Le spectacle n'a pas encore commencé.." textAlignment="center" id="qaJ-8z-Y0M">
+                                <rect key="frame" x="20" y="204" width="528" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,6 +75,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="SettingsBtn" destination="WtL-sW-zXu" id="xIh-cK-TS0"/>
+                        <outlet property="textCom" destination="qaJ-8z-Y0M" id="83i-pQ-j7e"/>
+                        <outlet property="updateText" destination="fWK-oO-c2Q" id="TX3-Fn-SYS"/>
+                        <outlet property="updateView" destination="Df2-Bo-atO" id="ozb-Wt-oCO"/>
+                        <outlet property="versionNum" destination="er1-mt-4C1" id="9GR-3E-YUF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,10 +158,10 @@ Le public (habitants, chercheurs …) est impliqué dans la démarche de recherc
             </objects>
             <point key="canvasLocation" x="649" y="330"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings Controller-->
         <scene sceneID="HIC-kj-uhM">
             <objects>
-                <viewController id="NMd-Qw-eXW" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="NMd-Qw-eXW" customClass="SettingsController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xzM-hM-Qpu">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,7 +178,7 @@ Le public (habitants, chercheurs …) est impliqué dans la démarche de recherc
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="goBack:" destination="NMd-Qw-eXW" eventType="touchUpInside" id="K3H-ge-kDb"/>
+                                            <action selector="SettingsOK:" destination="NMd-Qw-eXW" eventType="touchUpInside" id="hH5-Al-1iX"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JDJlogoheader" id="GbO-5Z-mtR">
@@ -216,13 +224,15 @@ Le public (habitants, chercheurs …) est impliqué dans la démarche de recherc
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.15401114190000001" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="picker" destination="CVQ-zb-1KF" id="4ET-2X-iDz"/>
+                        <outlet property="disclaimer" destination="sSa-bw-aTZ" id="bvY-6f-HI0"/>
+                        <outlet property="phoneField" destination="9Ck-3G-0OB" id="9AJ-Ha-uZO"/>
+                        <outlet property="picker" destination="CVQ-zb-1KF" id="8sQ-pc-hVg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUu-HH-0VI" userLabel="First Responder" sceneMemberID="firstResponder"/>

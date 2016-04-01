@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+@interface ViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIPickerView *picker;
-@property (strong, nonatomic)          NSArray *showList;
+@property (weak, nonatomic) IBOutlet UIButton *SettingsBtn;
+@property (weak, nonatomic) IBOutlet UITextField *versionNum;
+@property (weak, nonatomic) IBOutlet UIView *updateView;
+@property (weak, nonatomic) IBOutlet UITextField *updateText;
+@property (weak, nonatomic) IBOutlet UITextView *textCom;
+
+- (void)updateAvailable:(BOOL)switcher;
 
 @end

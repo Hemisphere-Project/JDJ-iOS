@@ -98,6 +98,20 @@
     else taskBuffer = nil;
 }
 
+// REGISTER user
+- (void) doRegister: (NSString *) myphone ShowID:(int) showid {
+    
+    NSDictionary *obj = @{
+                          @"userid" : [NSNumber numberWithInt:userid],
+                          @"number" : myphone,
+                          @"showid" : [NSNumber numberWithInt:showid],
+                          @"os"     : @"ios",
+                        };
+    
+    [socket emit:@"subscribe" withItems:@[obj]];
+    
+}
+
 // HELLO
 - (void) processHello: (NSDictionary *) data {
     //NSLog(@"COM: HELLO %@", data);
@@ -140,35 +154,37 @@
     if ([self notNull:showlist]) [SettingsClass setArray:@"showlist" Value:showlist];
     
     // SERVER VERSION
-    serverVersion = [data objectForKey:@"version-ios"];
+    serverVersion = [data objectForKey:@"version"];
     if ([self notNull:serverVersion]) [SettingsClass setDict:@"server" Value:serverVersion];
     
     // CHECK VERSION
     NSArray* myVersion = [APP_VERSION componentsSeparatedByString: @"."];
     
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     // MAJOR BREAK
     if ([self notNull:[serverVersion valueForKey:@"main"]])
         if ([[serverVersion valueForKey:@"main"] integerValue] > [myVersion[0] integerValue]) {
-            NSLog(@"COM: Main BREAK");
+            [appDelegate.mainController updateAvailable:TRUE];
             return;
         }
     if ([self notNull:[serverVersion valueForKey:@"major"]])
         if ([[serverVersion valueForKey:@"major"] integerValue] > [myVersion[1] integerValue]) {
-            NSLog(@"COM: Major BREAK");
+            [appDelegate.mainController updateAvailable:TRUE];
             return;
         }
     
     // MISSING USER
     if (userid < 0 || [self notNull:error]) {
         NSLog(@"COM: User incomplete");
-        if ([self notNull:error]) NSLog(@"COM: Error on user: %@",error);
+        [appDelegate showSettings];
         return;
     }
     
     // MINOR BREAK
-    if ([self notNull:[serverVersion valueForKey:@"minor"]])
-        if ([[serverVersion valueForKey:@"minor"] integerValue] > [myVersion[2] integerValue]) {
-            NSLog(@"COM: Minor BREAK");
+    if ([self notNull:[serverVersion valueForKey:@"ios-minor"]])
+        if ([[serverVersion valueForKey:@"ios-minor"] integerValue] > [myVersion[2] integerValue]) {
+            [appDelegate.mainController updateAvailable:TRUE];
         }
     
     // SHOW STATE

@@ -27,6 +27,16 @@
     last_stamp = 0;
     userid = [SettingsClass getInt:@"userid" defValue:-1];
     
+    // CHECK CONNECTIVITY
+    reach = [TMReachability reachabilityWithHostname:[SERVER_URL stringByAppendingString:@"/ping"]];
+    reach.reachableOnWWAN = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+    [reach startNotifier];
+    
     
     // SOCKET
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@:%d", SERVER_URL, SERVER_PORT_CMD]];
@@ -36,6 +46,8 @@
     [socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
         NSLog(@"COM: socket connected");
         connected = YES;
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.mainController infoCom:@"Vous êtes connecté au Journal d'un seul Jour."];
     }];
     
     // WHOAREYOU
@@ -85,6 +97,16 @@
     else return (obj != nil);
 }
 
+- (void) reachabilityChanged: (NSNotification*) notif {
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    if (reach.isReachableViaWiFi || reach.isReachableViaWWAN) {
+        if (!connected) [appDelegate.mainController infoCom:@"Connexion au serveur de spectacle en cours ..."];
+    }
+    else [appDelegate.mainController infoCom:@"Impossible de joindre le serveur de spectacle,\n vérifiez votre connexion WIFI ou 3G/4G"];
+}
+
+
 - (void) storeTask: (NSMutableDictionary*) dict {
     if ([self notNull:dict]) {
         [dict removeObjectForKey:@"timestamp"];
@@ -102,7 +124,7 @@
 - (void) doRegister: (NSString *) myphone ShowID:(int) showid {
     
     NSDictionary *obj = @{
-                          @"userid" : [NSNumber numberWithInt:userid],
+                          @"userid" : [NSNumber numberWithLong:userid],
                           @"number" : myphone,
                           @"showid" : [NSNumber numberWithInt:showid],
                           @"os"     : @"ios",
@@ -119,6 +141,11 @@
     // PARSE Hello
     NSDictionary *user = [data objectForKey:@"user"];
     if (!user) return;
+    
+    // INFO
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString* info = [user objectForKey:@"info"];
+    if ([self notNull:info]) [appDelegate.mainController infoCom:info];
     
     // USER id
     if ([self notNull:[user valueForKey:@"id"]]) {
@@ -159,8 +186,6 @@
     
     // CHECK VERSION
     NSArray* myVersion = [APP_VERSION componentsSeparatedByString: @"."];
-    
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     // MAJOR BREAK
     if ([self notNull:[serverVersion valueForKey:@"main"]])

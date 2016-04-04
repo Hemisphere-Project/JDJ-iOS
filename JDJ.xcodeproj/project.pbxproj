@@ -30,6 +30,11 @@
 		CA1A494D1C99CDE300939938 /* TextClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1A494C1C99CDE300939938 /* TextClass.m */; };
 		CA3430C01CA58F6200A940A4 /* SettingsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3430BF1CA58F6200A940A4 /* SettingsClass.m */; };
 		CA3430CD1CA5949C00A940A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3430CC1CA5949C00A940A4 /* ViewController.m */; };
+		CA3A7FF31CB29E2C004A5763 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A7FF11CB29E2C004A5763 /* UIImage+animatedGIF.m */; };
+		CA3A7FF51CB29F75004A5763 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3A7FF41CB29F75004A5763 /* ImageIO.framework */; };
+		CA3A7FF81CB2B03B004A5763 /* FilesClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A7FF71CB2B03B004A5763 /* FilesClass.m */; };
+		CA42A6B91CB26408004EE965 /* TMReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A6B81CB26408004EE965 /* TMReachability.m */; };
+		CA42A6BB1CB2645E004EE965 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA42A6BA1CB2645E004EE965 /* SystemConfiguration.framework */; };
 		CA4508B11CAEE9EF00BB3ED2 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */; };
 		CAF4B2F21C3A9D390079DB5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F11C3A9D390079DB5A /* main.m */; };
 		CAF4B2F51C3A9D390079DB5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */; };
@@ -38,7 +43,6 @@
 		CAF4B30F1C3AD19D0079DB5A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4B30E1C3AD19D0079DB5A /* AVFoundation.framework */; };
 		CAF4B3111C3AD2210079DB5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4B3101C3AD2210079DB5A /* UIKit.framework */; };
 		CAF4B3141C3AD3270079DB5A /* MovieClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B3131C3AD3270079DB5A /* MovieClass.m */; };
-		CAF4B3181C3AD76D0079DB5A /* FilesClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B3171C3AD76D0079DB5A /* FilesClass.m */; };
 		CAF4B31B1C3ADCCA0079DB5A /* DisplayClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B31A1C3ADCCA0079DB5A /* DisplayClass.m */; };
 		CC1642308306269C27858C52 /* SocketEnginePacketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BF9DE3518B1EE4AD8417E7 /* SocketEnginePacketType.swift */; };
 		CE7359A98A48984BF77A6EB3 /* SocketParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D34D154ED5488C5F3C5EC1 /* SocketParsable.swift */; };
@@ -77,6 +81,14 @@
 		CA3430BF1CA58F6200A940A4 /* SettingsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsClass.m; sourceTree = "<group>"; };
 		CA3430CB1CA5949C00A940A4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CA3430CC1CA5949C00A940A4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CA3A7FF11CB29E2C004A5763 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		CA3A7FF21CB29E2C004A5763 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		CA3A7FF41CB29F75004A5763 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		CA3A7FF61CB2B03B004A5763 /* FilesClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesClass.h; sourceTree = "<group>"; };
+		CA3A7FF71CB2B03B004A5763 /* FilesClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesClass.m; sourceTree = "<group>"; };
+		CA42A6B71CB26408004EE965 /* TMReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMReachability.h; sourceTree = "<group>"; };
+		CA42A6B81CB26408004EE965 /* TMReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMReachability.m; sourceTree = "<group>"; };
+		CA42A6BA1CB2645E004EE965 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CA4508AF1CAEE9EF00BB3ED2 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		CAF4B2ED1C3A9D390079DB5A /* JDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,8 +103,6 @@
 		CAF4B3121C3AD3270079DB5A /* MovieClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieClass.h; sourceTree = "<group>"; };
 		CAF4B3131C3AD3270079DB5A /* MovieClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieClass.m; sourceTree = "<group>"; };
 		CAF4B3151C3AD4F50079DB5A /* ConfigConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigConst.h; sourceTree = "<group>"; };
-		CAF4B3161C3AD76D0079DB5A /* FilesClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesClass.h; sourceTree = "<group>"; };
-		CAF4B3171C3AD76D0079DB5A /* FilesClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesClass.m; sourceTree = "<group>"; };
 		CAF4B3191C3ADCCA0079DB5A /* DisplayClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayClass.h; sourceTree = "<group>"; };
 		CAF4B31A1C3ADCCA0079DB5A /* DisplayClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayClass.m; sourceTree = "<group>"; };
 		D02D723F428C130712AD77C9 /* SocketIOClientStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketIOClientStatus.swift; path = "Seeds/socket.io-client-swift/Source/SocketIOClientStatus.swift"; sourceTree = "<group>"; };
@@ -108,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3A7FF51CB29F75004A5763 /* ImageIO.framework in Frameworks */,
+				CA42A6BB1CB2645E004EE965 /* SystemConfiguration.framework in Frameworks */,
 				CAF4B3111C3AD2210079DB5A /* UIKit.framework in Frameworks */,
 				CAF4B30F1C3AD19D0079DB5A /* AVFoundation.framework in Frameworks */,
 			);
@@ -152,16 +164,22 @@
 			name = "socket.io-client-swift";
 			sourceTree = "<group>";
 		};
-		CA3430AC1CA5868300A940A4 /* Views */ = {
+		CA42A6B31CB26330004EE965 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				CA3A7FF11CB29E2C004A5763 /* UIImage+animatedGIF.m */,
+				CA3A7FF21CB29E2C004A5763 /* UIImage+animatedGIF.h */,
+				CA42A6B71CB26408004EE965 /* TMReachability.h */,
+				CA42A6B81CB26408004EE965 /* TMReachability.m */,
 			);
-			name = Views;
+			name = Libs;
 			sourceTree = "<group>";
 		};
 		CAF4B2E41C3A9D390079DB5A = {
 			isa = PBXGroup;
 			children = (
+				CA3A7FF41CB29F75004A5763 /* ImageIO.framework */,
+				CA42A6BA1CB2645E004EE965 /* SystemConfiguration.framework */,
 				CAF4B3101C3AD2210079DB5A /* UIKit.framework */,
 				CAF4B30E1C3AD19D0079DB5A /* AVFoundation.framework */,
 				CAF4B2EF1C3A9D390079DB5A /* JDJ */,
@@ -181,8 +199,8 @@
 		CAF4B2EF1C3A9D390079DB5A /* JDJ */ = {
 			isa = PBXGroup;
 			children = (
+				CA42A6B31CB26330004EE965 /* Libs */,
 				CAF4B3151C3AD4F50079DB5A /* ConfigConst.h */,
-				CA3430AC1CA5868300A940A4 /* Views */,
 				CAF4B3071C3AD0550079DB5A /* Classes */,
 				CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */,
 				CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */,
@@ -211,14 +229,14 @@
 			children = (
 				CAF4B3121C3AD3270079DB5A /* MovieClass.h */,
 				CAF4B3131C3AD3270079DB5A /* MovieClass.m */,
-				CAF4B3161C3AD76D0079DB5A /* FilesClass.h */,
-				CAF4B3171C3AD76D0079DB5A /* FilesClass.m */,
 				CAF4B3191C3ADCCA0079DB5A /* DisplayClass.h */,
 				CAF4B31A1C3ADCCA0079DB5A /* DisplayClass.m */,
 				CA105E3B1C74728E00F5A974 /* RunClass.h */,
 				CA105E3C1C74728E00F5A974 /* RunClass.m */,
 				CA105E3E1C74794E00F5A974 /* ComClass.h */,
 				CA105E3F1C74794E00F5A974 /* ComClass.m */,
+				CA3A7FF61CB2B03B004A5763 /* FilesClass.h */,
+				CA3A7FF71CB2B03B004A5763 /* FilesClass.m */,
 				CA1A49421C99A96700939938 /* CheckerClass.h */,
 				CA1A49431C99A96700939938 /* CheckerClass.m */,
 				CA1A49451C99BC8C00939938 /* WebClass.h */,
@@ -314,8 +332,10 @@
 				56EE2E44073337B01C71F79A /* SocketIOClientOption.swift in Sources */,
 				DBC07BA02DD1D0B4AB0BA7BD /* SocketIOClient.swift in Sources */,
 				21C2CB0F5E8048A0EA404134 /* SocketEventHandler.swift in Sources */,
+				CA3A7FF31CB29E2C004A5763 /* UIImage+animatedGIF.m in Sources */,
 				8FD48A370EF7B14943D6EEBB /* SocketEngineWebsocket.swift in Sources */,
 				94C5AC15A70AAF1A11C1D70E /* SocketEngineSpec.swift in Sources */,
+				CA3A7FF81CB2B03B004A5763 /* FilesClass.m in Sources */,
 				0EFC39DA8F90512AF36030E6 /* SocketEnginePollable.swift in Sources */,
 				CC1642308306269C27858C52 /* SocketEnginePacketType.swift in Sources */,
 				DE81267CE6AED088CF4EEBBA /* SocketEngineClient.swift in Sources */,
@@ -325,13 +345,13 @@
 				4A0FD1E4963004B2B557BA0D /* SocketAckManager.swift in Sources */,
 				CA3430C01CA58F6200A940A4 /* SettingsClass.m in Sources */,
 				A9B31ED63C933215E04C2139 /* SocketAckEmitter.swift in Sources */,
+				CA42A6B91CB26408004EE965 /* TMReachability.m in Sources */,
 				CA1A49441C99A96700939938 /* CheckerClass.m in Sources */,
 				CAF4B31B1C3ADCCA0079DB5A /* DisplayClass.m in Sources */,
 				CA1A494D1C99CDE300939938 /* TextClass.m in Sources */,
 				CA1A49471C99BC8C00939938 /* WebClass.m in Sources */,
 				CA105E401C74794E00F5A974 /* ComClass.m in Sources */,
 				CA105E3D1C74728E00F5A974 /* RunClass.m in Sources */,
-				CAF4B3181C3AD76D0079DB5A /* FilesClass.m in Sources */,
 				CAF4B3141C3AD3270079DB5A /* MovieClass.m in Sources */,
 				CAF4B2F51C3A9D390079DB5A /* AppDelegate.m in Sources */,
 				CAF4B2F21C3A9D390079DB5A /* main.m in Sources */,
@@ -441,9 +461,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hmsphr.JDJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hemisphere.jdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -457,9 +477,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hmsphr.JDJ;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hemisphere.jdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -18,7 +18,7 @@
     UIView *movieview;
     UIView *webview;
     UIView *textview;
-    UIView *musicview;
+    UIImageView *musicview;
     UIView *loaderview;
     UIView *replayview;
     

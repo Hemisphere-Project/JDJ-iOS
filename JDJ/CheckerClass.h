@@ -17,6 +17,7 @@
     int timeHere;
     int batteryRefresh;
     int broadcastRefresh;
+    
 }
 
 

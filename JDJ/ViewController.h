@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *textCom;
 
 - (void)updateAvailable:(BOOL)switcher;
+- (void)infoCom:(NSString*)info;
 
 @end

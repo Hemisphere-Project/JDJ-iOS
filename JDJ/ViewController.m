@@ -44,6 +44,10 @@
     }
 }
 
+- (void)infoCom:(NSString*)info {
+    self.textCom.text = info;
+}
+
 
 
 

@@ -1,1 +1,2 @@
 github "socketio/socket.io-client-swift", "v5.4.1", :files => "Source/*.swift" # Or latest version
+

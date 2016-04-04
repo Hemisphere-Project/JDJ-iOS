@@ -9,6 +9,7 @@
 #import "DisplayClass.h"
 #import "ConfigConst.h"
 #import "AppDelegate.h"
+#import "UIImage+animatedGIF.h"
 
 @implementation DisplayClass
 
@@ -102,12 +103,7 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     mainView = [appDelegate.window.rootViewController view];
     mainView.backgroundColor = [UIColor blackColor];
-    
-    //SETTINGS
-    /*NSArray *xib = [[NSBundle mainBundle] loadNibNamed:@"SettingsView" owner:self options:nil];
-    settingsview = [xib objectAtIndex:0];
-    settingsview.frame = mainView.frame;
-    [mainView addSubview:settingsview];*/
+
     
     //MOVIE PLAYER
     movieview = [[UIView alloc] initWithFrame:mainView.bounds];
@@ -121,12 +117,15 @@
     
     //AUDIO MASK
     //Create Masks (musicview)
-    musicview = [[UIView alloc] initWithFrame:mainView.bounds];
+    musicview = [[UIImageView alloc] initWithFrame:mainView.bounds];
     musicview.backgroundColor = [UIColor blackColor];
     musicview.alpha=0;
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"radio2" withExtension:@"gif"];
+    musicview.image = [UIImage animatedImageWithAnimatedGIFData:[NSData dataWithContentsOfURL:url]];
     [mainView addSubview:musicview];
     
-        UILabel* musiclabel = [ [UILabel alloc ] initWithFrame:musicview.frame ];
+        /*UILabel* musiclabel = [ [UILabel alloc ] initWithFrame:musicview.frame ];
         musiclabel.textAlignment =  NSTextAlignmentCenter;
         musiclabel.textColor = [UIColor blackColor];
         musiclabel.backgroundColor = [UIColor greenColor];
@@ -135,7 +134,7 @@
         musiclabel.text = @"Music Player";
     
         //push to View
-        [musicview addSubview:musiclabel];
+        [musicview addSubview:musiclabel];*/
     
     //WEB PLAYER
     webview = [[UIView alloc] initWithFrame:mainView.bounds];

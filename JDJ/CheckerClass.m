@@ -40,10 +40,8 @@
 // Runner command executed on each timer beat
 - (void) beat{
     
-    
-    
-    //CHECK IF WIFI CONNECTED
-    //[appDelegate.interFace infoIP: [appDelegate.comPort getIPAddress]];
+    //CHECK IF NETWORK AVAILABLE
+    //AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     //CHECK SERVER CONNECTION
     //NSString *serverIPstate = [appDelegate.comPort serverState];

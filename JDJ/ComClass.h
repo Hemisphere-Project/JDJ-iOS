@@ -15,6 +15,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TMReachability.h"
 
 @class SocketIOClient;
 
@@ -45,6 +46,7 @@
     NSDictionary*   serverVersion;
 
     //STATE
+    TMReachability* reach;
     BOOL connected;
     BOOL player_ready;
 }

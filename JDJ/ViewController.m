@@ -48,6 +48,18 @@
     self.textCom.text = info;
 }
 
+- (IBAction)gotoJournal:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://journaldunseuljour.fr"]];
+}
+
+- (IBAction)gotoTeam:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://compagnie-acte.fr/journal-dun-seul-jour-equipe-et-partenaires/"]];
+}
+
+- (IBAction)gotoFunding:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.kisskissbankbank.com/journal-d-un-seul-jour"]];
+}
+
 
 
 

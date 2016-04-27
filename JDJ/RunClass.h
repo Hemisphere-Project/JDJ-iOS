@@ -16,8 +16,18 @@
     BOOL playweb;
     BOOL playtext;
     BOOL stopall;
+    BOOL playlighton;
+    BOOL playlightoff;
+    BOOL playlightstrobe;
+    BOOL playvibre;
+    
+    BOOL torchOn;
+    BOOL stopStrobe;
+    NSTimer *strobTime;
 
 }
+
+@property BOOL stopall;
 
 - (void) dispatch:(NSDictionary*) task;
 

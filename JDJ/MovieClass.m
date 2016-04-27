@@ -22,6 +22,7 @@
     movieLoad = nil;
     movieCurrent = nil;
     audioMask = FALSE;
+    playAtTime = 0;
     
     //Create PLAYER 1 view
     movie1view = [[UIView alloc] initWithFrame:CGRectMake(0,0,100,100)];
@@ -43,7 +44,7 @@
     if ([file length]>=1) {
         movieLoad = file;
         audioMask = audiomask;
-        
+        playAtTime = ([atTime doubleValue]-210)/1000.;
     }
     
 }
@@ -64,9 +65,18 @@
     //else create new player
     else {
         
+        if (player != nil && [player currentItem] != nil) {
+            [[player currentItem] removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+            [[player currentItem] removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+        }
+        
         // Create the AVAsset
         AVAsset *asset = [AVAsset assetWithURL:[appDelegate.filesManager url:movieLoad]];
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+        
+        // Streaming observer
+        [playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
+        [playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
         
         //Player
         player = [AVPlayer playerWithPlayerItem:playerItem];
@@ -96,7 +106,8 @@
         movieCurrent = [movieLoad copy];
         
         //let's play
-        [self start];
+        [self launch:playAtTime];
+        //NSLog(@"now %f / attime %f",[[NSDate date] timeIntervalSince1970], playAtTime);
         
         [appDelegate.disPlay movie:TRUE];
         [appDelegate.disPlay music:audioMask];
@@ -106,6 +117,37 @@
 //MOVIE END OBSEREVER (auto loop)
 - (void)movieDidEnd:(NSNotification *)notification {
     [self replay];
+}
+
+// RESUME AFTER BACKGROUNND
+-(void) resume {
+    if (![self isPlaying]) return;
+    [self launch:0];
+}
+
+//LAUNCH
+-(void) launch:(double) atTime {
+    
+    // cancel replay timeout
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stop) object:nil];
+    didFreeze = NO;
+    
+    [player play];
+    
+    // seek to time audio
+    if (atTime < [[NSDate date] timeIntervalSince1970] && audioMask && playAtTime > 0) {
+        atTime = [[NSDate date] timeIntervalSince1970] + 1.5;
+        [self skip: (atTime-playAtTime)];
+    }
+    
+    // wait atTime
+    if (atTime > [[NSDate date] timeIntervalSince1970]) {
+        [player pause];
+        if (([[NSDate date] timeIntervalSince1970] - atTime) > 10) atTime = [[NSDate date] timeIntervalSince1970]+10;
+        [self performSelector:@selector(start) withObject:nil afterDelay:(atTime-[[NSDate date] timeIntervalSince1970])];
+    }
+    else [self start];
+        
 }
 
 //START
@@ -119,10 +161,17 @@
     
     [player play];
     paused = NO;
+    
+    //timeout (if never start)
+    //[self performSelector:@selector(stop) withObject:nil afterDelay:10];
 }
 
 //RESTART (from beginning)
 -(void) restart {
+    
+    // cancel replay timeout
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stop) object:nil];
+    
     [self skip:0];
     [self start];
 }
@@ -142,6 +191,9 @@
     [imageView addGestureRecognizer:singleTap];
     
     [appDelegate.disPlay replay:TRUE];
+    
+    // Timeout
+    [self performSelector:@selector(stop) withObject:nil afterDelay:15];
 }
 
 //STOP
@@ -150,6 +202,11 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     [appDelegate.disPlay movie:FALSE];
     movie1view.layer.sublayers = nil;
+    if ([player currentItem] != nil) {
+        [[player currentItem] removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+        [[player currentItem] removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+    }
+    
     player = nil;
 
     [appDelegate.disPlay music:FALSE];
@@ -161,6 +218,32 @@
     if ([movieLoad isEqualToString:@"*"] && (movieCurrent != nil)) movieLoad = [movieCurrent copy];
     movieCurrent = nil;
     
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+                        change:(NSDictionary *)change context:(void *)context {
+    if (!player)
+    {
+        return;
+    }
+    
+    else if ([keyPath isEqualToString:@"playbackBufferEmpty"])
+    {
+        if ([player currentItem].playbackBufferEmpty) {
+            NSLog(@"Buffer empty");
+            [self performSelector:@selector(stop) withObject:nil afterDelay:15];
+            didFreeze = YES;
+        }
+    }
+    
+    else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"])
+    {
+        if ([player currentItem].playbackLikelyToKeepUp) {
+            NSLog(@"Buffer back again");
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stop) object:nil];
+            if (didFreeze) [player play];
+        }
+    }
 }
 
 //MUTE
@@ -234,16 +317,21 @@
 }
 
 //SKIP
--(void) skip:(int) playbacktimeWanted{
+-(void) skip:(double) playbacktimeWanted{
     
-    if (![self isPlaying]) return;
+    //if (![self isPlaying]) return;
+    /*NSLog(@"duration %@ %f",CMTimeGetSeconds(player.currentItem.duration), playbacktimeWanted);
     
-    if ( CMTimeGetSeconds(player.currentItem.duration) > (playbacktimeWanted/1000)) {
-        //TODO Optimize seekToTime, and seekToTime 0 (rewind)
-        [player seekToTime:CMTimeMake(playbacktimeWanted, 1000) toleranceBefore: kCMTimeZero toleranceAfter: kCMTimeZero];
-        [self start];
+    if ( CMTimeGetSeconds(player.currentItem.duration) > (playbacktimeWanted)) {
+        [player seekToTime:CMTimeMake(playbacktimeWanted, 1) toleranceBefore: kCMTimeZero toleranceAfter: kCMTimeZero];
+        NSLog(@"skipped");
     }
-    else [self stop];
+    else {
+        //[self stop];
+        [self replay];
+    }*/
+    //NSLog(@"duration %f %f",CMTimeGetSeconds(player.currentItem.duration), playbacktimeWanted);
+    [player seekToTime:CMTimeMake((playbacktimeWanted*1000), 1000) toleranceBefore: kCMTimeZero toleranceAfter: kCMTimeZero];
 }
 
 //CURRENT MOVIE

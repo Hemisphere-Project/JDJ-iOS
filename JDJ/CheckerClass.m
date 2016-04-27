@@ -40,59 +40,7 @@
 // Runner command executed on each timer beat
 - (void) beat{
     
-    //CHECK IF NETWORK AVAILABLE
-    //AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    //CHECK SERVER CONNECTION
-    //NSString *serverIPstate = [appDelegate.comPort serverState];
-    //[appDelegate.interFace infoServer: serverIPstate];
-    
-    //RE-ASK IP REGIE WHEN BROADCAST MODE
-    /*if ([serverIPstate isEqualToString:@"broadcast"]) {
-        if (TIMER_CHECK_BROAD > 0) broadcastRefresh++;
-        if (broadcastRefresh > TIMER_CHECK_BROAD) {
-            [appDelegate.comPort sendInfo];
-            [appDelegate.comPort sendAskip];
-            broadcastRefresh = 0;
-        }
-    }*/
-    
-    //UPDATE LINK STATE
-    /*if (lastSync > 4)
-    {
-        [appDelegate.interFace infoLink: @"nolink"];
-        [appDelegate.comPort sendInfo];
-        //NSLog(@"nolink send sos");
-    }
-    else [appDelegate.interFace infoLink: @"OK"];
-    if (lastSync < 1000) lastSync++; //security increaser
-    
-    //UPDATE PLAYER STATE
-    if ([appDelegate.live2Player isLive]) {
-        [appDelegate.interFace infoState:@"live"];
-        [appDelegate.interFace infoMovie:@""];
-    }
-    else if ([appDelegate.moviePlayer isPlaying]) {
-        if(appDelegate.interFace.mode==MANU)[appDelegate.interFace infoState:@"play manu"];
-        if(appDelegate.interFace.mode==AUTO)[appDelegate.interFace infoState:@"play auto"];
-        [appDelegate.interFace infoMovie:[appDelegate.moviePlayer movie]];
-    }
-    else {
-        [appDelegate.interFace infoState:@"wait"];
-        [appDelegate.interFace infoMovie:@""];
-    }
-    
-    //UPDATE RECORDER STATE
-    [appDelegate.interFace infoRec:[appDelegate.recOrder isRecording]];
-    
-    //UPDATE CTRL STATE
-    if ([appDelegate.disPlay faded]) [appDelegate.interFace infoCtrl:@"faded"];
-    else [appDelegate.interFace infoCtrl:@""];
-    
-    //UPDATE MOVIE SCROLLER
-    if ([appDelegate.moviePlayer isPlaying])
-        [appDelegate.interFace Bslide:[appDelegate.moviePlayer duration]:[appDelegate.moviePlayer currentTime]];
-*/
 
     
 }

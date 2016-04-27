@@ -9,6 +9,7 @@
 #import "TextClass.h"
 #import "ConfigConst.h"
 #import "AppDelegate.h"
+#import "SettingsClass.h"
 
 @implementation TextClass
 
@@ -35,6 +36,20 @@
 
 //LOAD
 -(void) load:(NSString*)txt Time:(NSNumber*)atTime {
+    NSArray* txts = [txt componentsSeparatedByString:@"@%%#"];
+    NSMutableArray* txtuse = [[NSMutableArray alloc] init];
+    for (id t in txts) {
+        NSString* txtok = [t stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (![txtok isEqualToString:@""]) [txtuse addObject:txtok];
+    }
+    
+    if ([txtuse count] > 0) {
+        int userid = [SettingsClass getInt:@"userid" defValue:-1];
+        int index = 0;
+        if (userid > 0) index = userid%[txtuse count];
+        txt = [txtuse objectAtIndex: index ];
+    }
+
     content = txt;
 }
 

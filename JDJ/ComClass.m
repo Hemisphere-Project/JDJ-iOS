@@ -37,6 +37,13 @@
     
     [reach startNotifier];
     
+    // RETRY CONN
+    timerChecker = [NSTimer scheduledTimerWithTimeInterval:TIMER_CHECK
+                                                    target:self
+                                                  selector:@selector(check)
+                                                  userInfo:nil
+                                                   repeats:YES];
+    
     
     // SOCKET
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@:%d", SERVER_URL, SERVER_PORT_CMD]];
@@ -45,6 +52,8 @@
     // CONNECT
     [socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
         NSLog(@"COM: socket connected");
+        // cancel stop timeout
+        [NSObject cancelPreviousPerformRequestsWithTarget:self];
         connected = YES;
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         [appDelegate.mainController infoCom:@"Vous êtes connecté au Journal d'un seul Jour."];
@@ -80,6 +89,9 @@
     [socket on:@"disconnect" callback:^(NSArray* data, SocketAckEmitter* ack) {
         NSLog(@"COM: socket disconnected");
         connected = NO;
+        
+        // Timeout
+        [self performSelector:@selector(loose) withObject:nil afterDelay:15];
     }];
     
     [socket connect];
@@ -99,13 +111,24 @@
 
 - (void) reachabilityChanged: (NSNotification*) notif {
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    if (reach.isReachableViaWiFi || reach.isReachableViaWWAN) {
-        if (!connected) [appDelegate.mainController infoCom:@"Connexion au serveur de spectacle en cours ..."];
-    }
+    if (reach.isReachableViaWiFi || reach.isReachableViaWWAN) [self check];
     else [appDelegate.mainController infoCom:@"Impossible de joindre le serveur de spectacle,\n vérifiez votre connexion WIFI ou 3G/4G"];
 }
 
+
+- (void) check {
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    if (!connected && (reach.isReachableViaWiFi || reach.isReachableViaWWAN)) {
+        [appDelegate.mainController infoCom:@"Connexion au serveur de spectacle en cours ..."];
+        [socket disconnect];
+        [socket connect];
+    }
+}
+
+-(void) loose {
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    appDelegate.runMachine.stopall = YES;
+}
 
 - (void) storeTask: (NSMutableDictionary*) dict {
     if ([self notNull:dict]) {
@@ -144,7 +167,7 @@
     
     // INFO
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSString* info = [user objectForKey:@"info"];
+    NSString* info = [data objectForKey:@"info"];
     if ([self notNull:info]) [appDelegate.mainController infoCom:info];
     
     // USER id

@@ -159,9 +159,16 @@
     //LOADER MASK
     //Create Masks (loaderview)
     loaderview = [[UIView alloc] initWithFrame:mainView.bounds];
-    loaderview.backgroundColor = [UIColor blueColor];
+    loaderview.backgroundColor = [UIColor blackColor];
     loaderview.alpha=0;
     [mainView addSubview:loaderview];
+    
+        UIImage *logo = [UIImage imageNamed:@"Icon-Small-50"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
+        [iv setImage:logo];
+        [loaderview addSubview:iv];
+        iv.center = CGPointMake(loaderview.frame.size.width  / 2,
+                                     loaderview.frame.size.height / 2);
     
     
     //REPLAY MASK

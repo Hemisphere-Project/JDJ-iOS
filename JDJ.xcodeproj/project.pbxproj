@@ -36,6 +36,7 @@
 		CA42A6B91CB26408004EE965 /* TMReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A6B81CB26408004EE965 /* TMReachability.m */; };
 		CA42A6BB1CB2645E004EE965 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA42A6BA1CB2645E004EE965 /* SystemConfiguration.framework */; };
 		CA4508B11CAEE9EF00BB3ED2 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */; };
+		CAD1A7811CCF85E40036F895 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD1A7801CCF85E40036F895 /* AudioToolbox.framework */; };
 		CAF4B2F21C3A9D390079DB5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F11C3A9D390079DB5A /* main.m */; };
 		CAF4B2F51C3A9D390079DB5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B2F41C3A9D390079DB5A /* AppDelegate.m */; };
 		CAF4B2FB1C3A9D390079DB5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF4B2F91C3A9D390079DB5A /* Main.storyboard */; };
@@ -91,6 +92,7 @@
 		CA42A6BA1CB2645E004EE965 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CA4508AF1CAEE9EF00BB3ED2 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		CAD1A7801CCF85E40036F895 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CAF4B2ED1C3A9D390079DB5A /* JDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF4B2F11C3A9D390079DB5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD1A7811CCF85E40036F895 /* AudioToolbox.framework in Frameworks */,
 				CA3A7FF51CB29F75004A5763 /* ImageIO.framework in Frameworks */,
 				CA42A6BB1CB2645E004EE965 /* SystemConfiguration.framework in Frameworks */,
 				CAF4B3111C3AD2210079DB5A /* UIKit.framework in Frameworks */,
@@ -178,6 +181,7 @@
 		CAF4B2E41C3A9D390079DB5A = {
 			isa = PBXGroup;
 			children = (
+				CAD1A7801CCF85E40036F895 /* AudioToolbox.framework */,
 				CA3A7FF41CB29F75004A5763 /* ImageIO.framework */,
 				CA42A6BA1CB2645E004EE965 /* SystemConfiguration.framework */,
 				CAF4B3101C3AD2210079DB5A /* UIKit.framework */,
@@ -458,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
@@ -474,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;

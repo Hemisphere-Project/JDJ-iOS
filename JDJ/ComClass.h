@@ -49,6 +49,7 @@
     TMReachability* reach;
     BOOL connected;
     BOOL player_ready;
+    NSTimer *timerChecker;
 }
 
 @property (readwrite, retain) NSString* ipodName;
@@ -57,5 +58,7 @@
 - (void) doRegister: (NSString *)phone ShowID:(int) showid;
 - (void) processHello: (NSDictionary *) data;
 - (void) processCommand: (NSDictionary *) data;
+- (void) check;
+- (void) loose;
 
 @end

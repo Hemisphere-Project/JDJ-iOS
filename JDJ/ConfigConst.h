@@ -13,7 +13,7 @@
 // CONFIGURATION & CONSTANTS
 
 //APP
-#define APP_VERSION         @"1.0.0"
+#define APP_VERSION         @"1.0.3"
 
 //SERVER
 #define SERVER_URL          @"https://app.journaldunseuljour.fr"
@@ -25,7 +25,7 @@
 
 //TIMERS
 #define TIMER_RUN           0.1  //10ms   Runner : recieved orders
-#define TIMER_CHECK         0.8  //800ms  Checker : IP / Screen / ..
+#define TIMER_CHECK         15   //15s check server conn
 #define TIMER_RELMOVIE      0.4  //400ms  Movie Releaser (remove movie in the back)
 
 //PLAYER TYPES

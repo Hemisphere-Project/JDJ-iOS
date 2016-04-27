@@ -9,8 +9,11 @@
 #import "RunClass.h"
 #import "ConfigConst.h"
 #import "AppDelegate.h"
+#import <AudioToolbox/AudioServices.h>
 
 @implementation RunClass
+
+@synthesize stopall;
 
 //###########################################################
 // INIT
@@ -18,6 +21,10 @@
 - (id) init
 {
     [self clear];
+    
+    torchOn = NO;
+    stopStrobe = NO;
+    
     return [super init];
 }
 
@@ -27,6 +34,35 @@
 - (BOOL) notNull: (NSObject*) obj {
     if ([obj isEqual:[NSNull null]]) return NO;
     else return (obj != nil);
+}
+
+//###########################################################
+// TORCH
+
+- (void) setTorchOn:(BOOL)isOn
+{
+    AVCaptureDevice* device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    [device lockForConfiguration:nil];
+    [device setTorchMode:isOn ? AVCaptureTorchModeOn : AVCaptureTorchModeOff];
+    [device unlockForConfiguration];
+}
+
+- (void) toggleTorch{
+    if (stopStrobe){
+        [strobTime invalidate];
+        return;
+    }
+    torchOn = !torchOn;
+    [self setTorchOn:torchOn];
+}
+
+- (void) startFlashing{
+    stopStrobe = NO;
+    strobTime = [NSTimer scheduledTimerWithTimeInterval:0.1f
+                                                  target:self
+                                                selector:@selector(toggleTorch)
+                                                userInfo:nil
+                                                 repeats:YES];
 }
 
 //###########################################################
@@ -73,6 +109,12 @@
         else if ([engine isEqualToString: @"text"]) {
             [appDelegate.textPlayer load: [content copy] Time:atTime];
             playtext = TRUE;
+        }
+        else if ([engine isEqualToString: @"phone"]) {
+            if ([param1 isEqualToString:@"lightOn"]) playlighton = TRUE;
+            else if ([param1 isEqualToString:@"lightOff"]) playlightoff = TRUE;
+            else if ([param1 isEqualToString:@"lightStrobe"]) playlightstrobe = TRUE;
+            else if ([param1 isEqualToString:@"vibre"]) playvibre = TRUE;
         }
         else return NSLog(@"RUN: Unknown engine.. BREAK");
         
@@ -135,6 +177,32 @@
         NSLog(@"RUN: Text play");
     }
     
+    //light ON
+    if (playlighton) {
+        stopStrobe = YES;
+        [self setTorchOn:YES];
+        NSLog(@"RUN: Light ON");
+    }
+    
+    //light OFF
+    if (playlightoff) {
+        stopStrobe = YES;
+        [self setTorchOn:NO];
+        NSLog(@"RUN: Light OFF");
+    }
+    
+    //light OFF
+    if (playlightstrobe) {
+        [self startFlashing];
+        NSLog(@"RUN: Light STROBE");
+    }
+    
+    //Vibrate
+    if (playvibre) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        NSLog(@"RUN: Vibrate");
+    }
+    
     //IMPORTANT : if use of a new command BOOL, don't forget to register it in clear function !!!!
     [self clear];
 }
@@ -148,6 +216,11 @@
     playweb = NO;
     playtext = NO;
     stopall = NO;
+    
+    playlighton = NO;
+    playlightoff = NO;
+    playlightstrobe = NO;
+    playvibre = NO;
     
 }
 

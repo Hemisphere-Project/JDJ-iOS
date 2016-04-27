@@ -18,5 +18,8 @@
 
 - (void)updateAvailable:(BOOL)switcher;
 - (void)infoCom:(NSString*)info;
+- (IBAction)gotoJournal:(id)sender;
+- (IBAction)gotoTeam:(id)sender;
+- (IBAction)gotoFunding:(id)sender;
 
 @end

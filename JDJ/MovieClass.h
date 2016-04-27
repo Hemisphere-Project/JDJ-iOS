@@ -22,6 +22,8 @@
     NSString *movieLoad;
     NSString *movieCurrent;
     BOOL audioMask;
+    double playAtTime;
+    BOOL didFreeze;
 }
 
 @property (nonatomic,retain) UIView *movie1view;
@@ -40,8 +42,9 @@
 -(void) applyVolume;
 -(void) unpause;
 -(BOOL) isPause;
+-(void) resume;
 -(void) switchpause;
--(void) skip:(int) playbacktimeWanted;
+-(void) skip:(double) playbacktimeWanted;
 -(NSString*) movie;
 -(BOOL) isPlaying;
 -(CMTime) duration;

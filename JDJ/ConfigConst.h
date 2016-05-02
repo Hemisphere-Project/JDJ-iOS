@@ -13,7 +13,7 @@
 // CONFIGURATION & CONSTANTS
 
 //APP
-#define APP_VERSION         @"1.0.3"
+#define APP_VERSION         @"1.0.4"
 
 //SERVER
 #define SERVER_URL          @"https://app.journaldunseuljour.fr"

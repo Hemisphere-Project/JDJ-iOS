@@ -193,7 +193,7 @@
     [appDelegate.disPlay replay:TRUE];
     
     // Timeout
-    [self performSelector:@selector(stop) withObject:nil afterDelay:15];
+    [self performSelector:@selector(stop) withObject:nil afterDelay:30];
 }
 
 //STOP

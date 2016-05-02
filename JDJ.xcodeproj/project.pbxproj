@@ -93,6 +93,7 @@
 		CA4508AF1CAEE9EF00BB3ED2 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		CA4508B01CAEE9EF00BB3ED2 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		CAD1A7801CCF85E40036F895 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CAE0DB151CD7C3D800CB21F0 /* JDJ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JDJ.entitlements; sourceTree = "<group>"; };
 		CAF4B2ED1C3A9D390079DB5A /* JDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF4B2F11C3A9D390079DB5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAF4B2F31C3A9D390079DB5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		CAF4B2EF1C3A9D390079DB5A /* JDJ */ = {
 			isa = PBXGroup;
 			children = (
+				CAE0DB151CD7C3D800CB21F0 /* JDJ.entitlements */,
 				CA42A6B31CB26330004EE965 /* Libs */,
 				CAF4B3151C3AD4F50079DB5A /* ConfigConst.h */,
 				CAF4B3071C3AD0550079DB5A /* Classes */,
@@ -285,6 +287,11 @@
 					CAF4B2EC1C3A9D390079DB5A = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = YRGQQJC5AX;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -462,11 +469,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = JDJ/JDJ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hemisphere.jdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,11 +487,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = JDJ/JDJ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = JDJ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hemisphere.jdj;

@@ -38,14 +38,28 @@
     //COMMUNICATION
     comPort = [[ComClass alloc] init];
     
-    //RUN MACHINE (Clock & Dispatch Orders)
-    runMachine = [[RunClass alloc] init];
-    
     //RUN MACHINE (Clock & Check states)
     checkMachine = [[CheckerClass alloc] init];
     
     //FILES MANAGER
     filesManager = [[FilesClass alloc] init];
+    
+    //APP START
+    [checkMachine start];
+    
+    //VIEW CONTROLLER
+    mainController = (ViewController*) self.window.rootViewController;
+    
+    //[self initApp];
+    
+    //end of startup
+    return YES;
+}
+
+- (void) initApp {
+    
+    //RUN MACHINE (Clock & Dispatch Orders)
+    runMachine = [[RunClass alloc] init];
     
     //MOVIE PLAYER
     moviePlayer = [[MovieClass alloc] init];
@@ -59,15 +73,9 @@
     //DISPLAY
     disPlay = [[DisplayClass alloc] init];
     
-    //APP START
+    //START
     [runMachine start];
-    [checkMachine start];
     
-    //VIEW CONTROLLER
-    mainController = (ViewController*) self.window.rootViewController;
-    
-    //end of startup
-    return YES;
 }
 
 -(void) showSettings {

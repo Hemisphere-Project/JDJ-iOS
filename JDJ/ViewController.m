@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ConfigConst.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,14 @@
     self.versionNum.text = APP_VERSION;
     [self updateAvailable:FALSE];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // Do any additional setup after loading the view.
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate initApp];
 }
 
 - (void)didReceiveMemoryWarning {

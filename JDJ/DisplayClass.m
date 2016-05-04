@@ -91,6 +91,21 @@
     }
 }
 
+// UTILS ROTATION
+- (CGRect)getViewSize
+{
+    BOOL isPortrait = false;
+    
+    float max = MAX(mainView.bounds.size.width, mainView.bounds.size.height);
+    float min = MIN(mainView.bounds.size.width, mainView.bounds.size.height);
+    
+    CGRect frame;
+    if (isPortrait) frame = CGRectMake(0,0,min,max);
+    else  frame = CGRectMake(0,0,max,min);
+    
+    return frame;
+}
+
 
 
 //###########################################################
@@ -103,10 +118,11 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     mainView = [appDelegate.window.rootViewController view];
     mainView.backgroundColor = [UIColor blackColor];
+    mainView.frame = [self getViewSize];
 
     
     //MOVIE PLAYER
-    movieview = [[UIView alloc] initWithFrame:mainView.bounds];
+    movieview = [[UIView alloc] initWithFrame:[self getViewSize]];
     movieview.backgroundColor = [UIColor blackColor];
     movieview.alpha=0;
     [mainView addSubview:movieview];
@@ -117,7 +133,7 @@
     
     //AUDIO MASK
     //Create Masks (musicview)
-    musicview = [[UIImageView alloc] initWithFrame:mainView.bounds];
+    musicview = [[UIImageView alloc] initWithFrame:[self getViewSize]];
     musicview.backgroundColor = [UIColor blackColor];
     musicview.alpha=0;
     
@@ -137,7 +153,7 @@
         [musicview addSubview:musiclabel];*/
     
     //WEB PLAYER
-    webview = [[UIView alloc] initWithFrame:mainView.bounds];
+    webview = [[UIView alloc] initWithFrame:[self getViewSize]];
     webview.backgroundColor = [UIColor blackColor];
     webview.alpha=0;
     [mainView addSubview:webview];
@@ -147,7 +163,7 @@
         appDelegate.webPlayer.webview.frame = webview.frame;
     
     //TEXT PLAYER
-    textview = [[UIView alloc] initWithFrame:mainView.bounds];
+    textview = [[UIView alloc] initWithFrame:[self getViewSize]];
     textview.backgroundColor = [UIColor blackColor];
     textview.alpha=0;
     [mainView addSubview:textview];
@@ -158,7 +174,7 @@
     
     //LOADER MASK
     //Create Masks (loaderview)
-    loaderview = [[UIView alloc] initWithFrame:mainView.bounds];
+    loaderview = [[UIView alloc] initWithFrame:[self getViewSize]];
     loaderview.backgroundColor = [UIColor blackColor];
     loaderview.alpha=0;
     [mainView addSubview:loaderview];
@@ -173,7 +189,7 @@
     
     //REPLAY MASK
     //Create Masks (musicview)
-    replayview = [[UIView alloc] initWithFrame:mainView.bounds];
+    replayview = [[UIView alloc] initWithFrame:[self getViewSize]];
     replayview.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     replayview.alpha=0;
     [mainView addSubview:replayview];

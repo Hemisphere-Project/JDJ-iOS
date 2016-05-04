@@ -1,80 +1,109 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c3y-3D-DYy"/>
+                        <viewControllerLayoutGuide type="bottom" id="mF6-2B-vzD"/>
+                    </layoutGuides>
                     <view key="view" tag="1" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WtL-sW-zXu">
-                                <rect key="frame" x="165" y="143" width="97" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtL-sW-zXu">
+                                <rect key="frame" x="111" y="127" width="97" height="33"/>
                                 <color key="backgroundColor" white="0.15401114193385079" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="KYK-NL-ukK"/>
+                                    <constraint firstAttribute="width" constant="97" id="S2P-Hb-hXA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="REGLAGES"/>
                                 <connections>
                                     <segue destination="NMd-Qw-eXW" kind="modal" id="acA-8i-5FZ"/>
                                 </connections>
                             </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" id="Df2-Bo-atO">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-Bo-atO">
                                 <rect key="frame" x="0.0" y="297" width="568" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Une mise à jour est disponible ..." textAlignment="center" minimumFontSize="17" id="fWK-oO-c2Q">
-                                        <rect key="frame" x="20" y="-3" width="528" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Une mise à jour est disponible ..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWK-oO-c2Q">
+                                        <rect key="frame" x="43" y="-3" width="403" height="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0.0" textAlignment="center" minimumFontSize="17" id="er1-mt-4C1">
-                                        <rect key="frame" x="529" y="3" width="39" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er1-mt-4C1">
+                                        <rect key="frame" x="442" y="3" width="39" height="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.3411764705882353" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fWK-oO-c2Q" firstAttribute="leading" secondItem="Df2-Bo-atO" secondAttribute="leading" id="70m-NC-hbB"/>
+                                    <constraint firstItem="fWK-oO-c2Q" firstAttribute="centerX" secondItem="Df2-Bo-atO" secondAttribute="centerX" id="BJj-vs-wdy"/>
+                                    <constraint firstItem="er1-mt-4C1" firstAttribute="trailing" secondItem="Df2-Bo-atO" secondAttribute="trailing" id="Lh7-WG-8nA"/>
+                                </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jdj-logoB" id="z7O-Lt-Rfv">
-                                <rect key="frame" x="155" y="20" width="259" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jdj-logoB" translatesAutoresizingMaskIntoConstraints="NO" id="z7O-Lt-Rfv">
+                                <rect key="frame" x="111" y="20" width="259" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="WeR-tp-a7f"/>
+                                    <constraint firstAttribute="width" constant="259" id="wNI-dH-3Ne"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Bienvenue dans le Journal d'un Seul Jour ! Le spectacle n'a pas encore commencé.." textAlignment="center" id="qaJ-8z-Y0M">
-                                <rect key="frame" x="20" y="204" width="528" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GJZ-gL-lwJ">
-                                <rect key="frame" x="306" y="143" width="97" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJZ-gL-lwJ">
+                                <rect key="frame" x="273" y="127" width="97" height="33"/>
                                 <color key="backgroundColor" white="0.15401114193385079" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="21E-Oc-Kmf"/>
+                                    <constraint firstAttribute="width" constant="97" id="gmZ-TS-0Vi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="INFO"/>
                                 <connections>
                                     <segue destination="AuX-Ve-8r9" kind="modal" id="qMD-E4-wCu"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Bienvenue dans le Journal d'un Seul Jour ! Le spectacle n'a pas encore commencé.." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qaJ-8z-Y0M">
+                                <rect key="frame" x="20" y="205" width="440" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Df2-Bo-atO" secondAttribute="trailing" id="35g-oK-Nwt"/>
+                            <constraint firstItem="qaJ-8z-Y0M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3PX-VC-3Oa"/>
+                            <constraint firstItem="z7O-Lt-Rfv" firstAttribute="top" secondItem="c3y-3D-DYy" secondAttribute="bottom" constant="20" id="6gB-en-94F"/>
+                            <constraint firstItem="Df2-Bo-atO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G6L-vT-0EM"/>
+                            <constraint firstItem="GJZ-gL-lwJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-16.5" id="HPB-gf-3RL"/>
+                            <constraint firstItem="mF6-2B-vzD" firstAttribute="top" secondItem="Df2-Bo-atO" secondAttribute="bottom" id="L5z-hR-On0"/>
+                            <constraint firstItem="z7O-Lt-Rfv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OUh-Xd-Pbu"/>
+                            <constraint firstItem="GJZ-gL-lwJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80.5" id="QTq-Wt-g0e"/>
+                            <constraint firstItem="WtL-sW-zXu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-80.5" id="aHl-DJ-M5a"/>
+                            <constraint firstItem="qaJ-8z-Y0M" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bAa-X6-OUh"/>
+                            <constraint firstItem="WtL-sW-zXu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-16.5" id="guX-qB-qyu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lnx-15-N9m"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="SettingsBtn" destination="WtL-sW-zXu" id="xIh-cK-TS0"/>
                         <outlet property="textCom" destination="qaJ-8z-Y0M" id="83i-pQ-j7e"/>
@@ -91,21 +120,26 @@
         <scene sceneID="W1E-wI-ncO">
             <objects>
                 <viewController id="AuX-Ve-8r9" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pdA-Sd-AME"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cl1-t5-11p"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cq1-B8-0fH">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="USj-an-Rut">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USj-an-Rut">
                                 <rect key="frame" x="1" y="1" width="566" height="317"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JDJlogoheader" id="kls-lh-28u">
-                                        <rect key="frame" x="32" y="12" width="502" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="JDJlogoheader" translatesAutoresizingMaskIntoConstraints="NO" id="kls-lh-28u">
+                                        <rect key="frame" x="4" y="9" width="471" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="X8t-Yl-uRK"/>
+                                            <constraint firstAttribute="width" constant="471" id="hWV-Qh-Rd5"/>
+                                        </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" id="KrJ-Zf-Yim">
-                                        <rect key="frame" x="32" y="52" width="502" height="190"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="KrJ-Zf-Yim">
+                                        <rect key="frame" x="8" y="52" width="459" height="175"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">JOURNAL d’un SEUL JOUR est un spectacle chorégraphique dans la ville. Il vous invite à une aventure multimédia (danse, vidéo, musique, texte) en épisodes sur 24h, de 19h  à  19h le lendemain.  
 
@@ -116,10 +150,13 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rDB-vl-jgH">
-                                        <rect key="frame" x="32" y="235" width="366" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDB-vl-jgH">
+                                        <rect key="frame" x="8" y="235" width="366" height="33"/>
                                         <color key="backgroundColor" white="0.15401114190000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="366" id="DWE-Qc-bzU"/>
+                                            <constraint firstAttribute="height" constant="33" id="TXh-47-C1N"/>
+                                        </constraints>
                                         <state key="normal" title="Suivre le Journal en ligne">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -127,10 +164,13 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
                                             <action selector="gotoJournal:" destination="AuX-Ve-8r9" eventType="touchUpInside" id="bHw-xC-OQB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ryx-Nv-gk3">
-                                        <rect key="frame" x="32" y="276" width="195" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-Nv-gk3">
+                                        <rect key="frame" x="8" y="276" width="195" height="33"/>
                                         <color key="backgroundColor" white="0.15401114190000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="195" id="QYJ-Yw-9EE"/>
+                                            <constraint firstAttribute="height" constant="33" id="lGQ-4I-Ndd"/>
+                                        </constraints>
                                         <state key="normal" title="Equipe et Partenaires">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -138,10 +178,13 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
                                             <action selector="gotoTeam:" destination="AuX-Ve-8r9" eventType="touchUpInside" id="Zdp-Bn-ek4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ia3-wl-hjq">
-                                        <rect key="frame" x="235" y="276" width="163" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia3-wl-hjq">
+                                        <rect key="frame" x="211" y="276" width="163" height="33"/>
                                         <color key="backgroundColor" white="0.15401114190000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="UvV-QY-FDA"/>
+                                            <constraint firstAttribute="width" constant="163" id="pSa-cI-L5n"/>
+                                        </constraints>
                                         <state key="normal" title="Soutenez nous !">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -149,10 +192,13 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
                                             <action selector="gotoFunding:" destination="AuX-Ve-8r9" eventType="touchUpInside" id="VL4-iM-zUA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bH2-Uf-HGE">
-                                        <rect key="frame" x="458" y="276" width="76" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH2-Uf-HGE">
+                                        <rect key="frame" x="391" y="276" width="76" height="33"/>
                                         <color key="backgroundColor" white="0.15401114190000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76" id="SqX-5Q-xS2"/>
+                                            <constraint firstAttribute="height" constant="33" id="k9D-7n-dNY"/>
+                                        </constraints>
                                         <state key="normal" title="OK">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -162,9 +208,30 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="rDB-vl-jgH" firstAttribute="leading" secondItem="USj-an-Rut" secondAttribute="leadingMargin" id="2xU-cf-n6L"/>
+                                    <constraint firstItem="ia3-wl-hjq" firstAttribute="leading" secondItem="Ryx-Nv-gk3" secondAttribute="trailing" constant="8" id="416-29-AnN"/>
+                                    <constraint firstItem="Ryx-Nv-gk3" firstAttribute="bottom" secondItem="USj-an-Rut" secondAttribute="bottom" constant="-8" id="RWh-7b-Xla"/>
+                                    <constraint firstItem="kls-lh-28u" firstAttribute="centerX" secondItem="USj-an-Rut" secondAttribute="centerX" id="ScD-rA-uO0"/>
+                                    <constraint firstItem="KrJ-Zf-Yim" firstAttribute="trailing" secondItem="USj-an-Rut" secondAttribute="trailingMargin" id="TpY-fe-4SO"/>
+                                    <constraint firstItem="Ryx-Nv-gk3" firstAttribute="leading" secondItem="USj-an-Rut" secondAttribute="leadingMargin" id="UFW-Rj-Jc3"/>
+                                    <constraint firstItem="ia3-wl-hjq" firstAttribute="bottom" secondItem="USj-an-Rut" secondAttribute="bottom" constant="-8" id="WSv-WE-0Ku"/>
+                                    <constraint firstItem="rDB-vl-jgH" firstAttribute="top" secondItem="KrJ-Zf-Yim" secondAttribute="bottom" constant="8" id="bud-54-m6k"/>
+                                    <constraint firstItem="KrJ-Zf-Yim" firstAttribute="top" secondItem="kls-lh-28u" secondAttribute="bottom" constant="7" id="dYc-C4-M6M"/>
+                                    <constraint firstItem="ia3-wl-hjq" firstAttribute="top" secondItem="rDB-vl-jgH" secondAttribute="bottom" constant="8" id="fQI-KS-qkt"/>
+                                    <constraint firstItem="KrJ-Zf-Yim" firstAttribute="leading" secondItem="USj-an-Rut" secondAttribute="leadingMargin" id="mMr-ZE-1Ri"/>
+                                    <constraint firstItem="bH2-Uf-HGE" firstAttribute="trailing" secondItem="USj-an-Rut" secondAttribute="trailingMargin" id="ucH-9o-kUn"/>
+                                    <constraint firstItem="bH2-Uf-HGE" firstAttribute="bottom" secondItem="USj-an-Rut" secondAttribute="bottom" constant="-8" id="vhP-MZ-MWp"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cl1-t5-11p" firstAttribute="top" secondItem="USj-an-Rut" secondAttribute="bottom" id="H2r-2c-3WC"/>
+                            <constraint firstItem="USj-an-Rut" firstAttribute="top" secondItem="pdA-Sd-AME" secondAttribute="bottom" id="IKl-QQ-r9Z"/>
+                            <constraint firstItem="USj-an-Rut" firstAttribute="leading" secondItem="Cq1-B8-0fH" secondAttribute="leading" id="qS7-yB-XqG"/>
+                            <constraint firstAttribute="trailing" secondItem="USj-an-Rut" secondAttribute="trailing" id="sfx-Zh-pvY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rK-GR-Ykc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,17 +242,19 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
         <scene sceneID="HIC-kj-uhM">
             <objects>
                 <viewController id="NMd-Qw-eXW" customClass="SettingsController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qmc-6N-IGb"/>
+                        <viewControllerLayoutGuide type="bottom" id="M5z-am-dAW"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xzM-hM-Qpu">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="fgT-Yo-ujo">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgT-Yo-ujo">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UOT-P8-zT6">
-                                        <rect key="frame" x="352" y="265" width="110" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOT-P8-zT6">
+                                        <rect key="frame" x="357" y="279" width="110" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="VALIDER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,52 +263,85 @@ Cette application vous permet de suivre le spectacle durant les 24h et d'augment
                                             <action selector="SettingsOK:" destination="NMd-Qw-eXW" eventType="touchUpInside" id="hH5-Al-1iX"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Téléphone" textAlignment="center" minimumFontSize="17" id="Yil-Ks-YEw">
-                                        <rect key="frame" x="11" y="71" width="213" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Téléphone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yil-Ks-YEw">
+                                        <rect key="frame" x="11" y="71" width="194" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="194" id="91E-vJ-6uh"/>
+                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" scrollEnabled="NO" editable="NO" text="Votre numéro ne sera transmis à aucun tiers, il servira à vous informer des évènements relatifs à la représentation choisie" textAlignment="justified" id="sSa-bw-aTZ">
-                                        <rect key="frame" x="11" y="143" width="213" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" scrollEnabled="NO" editable="NO" text="Votre numéro ne sera transmis à aucun tiers, il servira à vous informer des évènements relatifs à la représentation choisie" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="sSa-bw-aTZ">
+                                        <rect key="frame" x="11" y="143" width="194" height="95"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="194" id="JMt-qL-0Nx"/>
+                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" id="9Ck-3G-0OB">
-                                        <rect key="frame" x="11" y="109" width="213" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="9Ck-3G-0OB">
+                                        <rect key="frame" x="11" y="109" width="194" height="30"/>
                                         <color key="backgroundColor" white="0.68597944630872487" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="194" id="9Su-Yz-zU1"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" id="CVQ-zb-1KF">
-                                        <rect key="frame" x="239" y="109" width="321" height="101"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Représentation" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttv-Lg-U7D">
+                                        <rect key="frame" x="213" y="71" width="254" height="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JDJlogoheader" translatesAutoresizingMaskIntoConstraints="NO" id="GbO-5Z-mtR">
+                                        <rect key="frame" x="11" y="11" width="459" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="ZXG-8u-L3R"/>
+                                            <constraint firstAttribute="width" constant="459" id="eLj-xX-PiF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVQ-zb-1KF">
+                                        <rect key="frame" x="213" y="109" width="254" height="101"/>
                                         <color key="backgroundColor" white="0.2769505033557047" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="101" id="bmq-2g-ufx"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="NMd-Qw-eXW" id="lBx-o6-n7w"/>
                                             <outlet property="delegate" destination="NMd-Qw-eXW" id="6OA-vt-z2v"/>
                                         </connections>
                                     </pickerView>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Représentation" textAlignment="center" minimumFontSize="17" id="ttv-Lg-U7D">
-                                        <rect key="frame" x="255" y="71" width="305" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JDJlogoheader" id="GbO-5Z-mtR">
-                                        <rect key="frame" x="40" y="16" width="489" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.15401114190000001" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sSa-bw-aTZ" firstAttribute="leading" secondItem="fgT-Yo-ujo" secondAttribute="leadingMargin" constant="3" id="1OS-lO-MI7"/>
+                                    <constraint firstItem="ttv-Lg-U7D" firstAttribute="trailing" secondItem="fgT-Yo-ujo" secondAttribute="trailingMargin" id="1ep-af-pnL"/>
+                                    <constraint firstItem="ttv-Lg-U7D" firstAttribute="leading" secondItem="Yil-Ks-YEw" secondAttribute="trailing" constant="8" id="3Qx-E3-4Dt"/>
+                                    <constraint firstItem="CVQ-zb-1KF" firstAttribute="top" secondItem="ttv-Lg-U7D" secondAttribute="bottom" constant="8" id="ARo-Zr-Rj5"/>
+                                    <constraint firstItem="9Ck-3G-0OB" firstAttribute="leading" secondItem="fgT-Yo-ujo" secondAttribute="leadingMargin" constant="3" id="Aro-Wa-4FU"/>
+                                    <constraint firstItem="CVQ-zb-1KF" firstAttribute="leading" secondItem="9Ck-3G-0OB" secondAttribute="trailing" constant="8" id="Iwf-ky-5OI"/>
+                                    <constraint firstItem="GbO-5Z-mtR" firstAttribute="centerX" secondItem="fgT-Yo-ujo" secondAttribute="centerX" id="arI-Rw-Xge"/>
+                                    <constraint firstItem="sSa-bw-aTZ" firstAttribute="top" secondItem="9Ck-3G-0OB" secondAttribute="bottom" constant="4" id="czu-X2-Wc9"/>
+                                    <constraint firstItem="ttv-Lg-U7D" firstAttribute="top" secondItem="GbO-5Z-mtR" secondAttribute="bottom" constant="26" id="fBQ-MH-RSG"/>
+                                    <constraint firstItem="CVQ-zb-1KF" firstAttribute="trailing" secondItem="fgT-Yo-ujo" secondAttribute="trailingMargin" id="fsX-mp-ukg"/>
+                                    <constraint firstItem="UOT-P8-zT6" firstAttribute="trailing" secondItem="fgT-Yo-ujo" secondAttribute="trailingMargin" id="gTZ-6c-xr8"/>
+                                    <constraint firstItem="Yil-Ks-YEw" firstAttribute="leading" secondItem="fgT-Yo-ujo" secondAttribute="leadingMargin" constant="3" id="gwW-oN-OC5"/>
+                                    <constraint firstItem="9Ck-3G-0OB" firstAttribute="top" secondItem="Yil-Ks-YEw" secondAttribute="bottom" constant="8" id="hCO-0I-QGU"/>
+                                    <constraint firstItem="Yil-Ks-YEw" firstAttribute="top" secondItem="GbO-5Z-mtR" secondAttribute="bottom" constant="26" id="quk-8A-f0K"/>
+                                    <constraint firstItem="GbO-5Z-mtR" firstAttribute="top" secondItem="fgT-Yo-ujo" secondAttribute="top" constant="11" id="rlG-Pd-QlZ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fgT-Yo-ujo" firstAttribute="leading" secondItem="xzM-hM-Qpu" secondAttribute="leading" id="JCA-4i-KZK"/>
+                            <constraint firstItem="M5z-am-dAW" firstAttribute="top" secondItem="fgT-Yo-ujo" secondAttribute="bottom" id="MBX-G5-T1S"/>
+                            <constraint firstItem="fgT-Yo-ujo" firstAttribute="top" secondItem="qmc-6N-IGb" secondAttribute="bottom" id="PdB-mK-DzF"/>
+                            <constraint firstAttribute="trailing" secondItem="fgT-Yo-ujo" secondAttribute="trailing" id="wjx-Sh-B6v"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="disclaimer" destination="sSa-bw-aTZ" id="bvY-6f-HI0"/>

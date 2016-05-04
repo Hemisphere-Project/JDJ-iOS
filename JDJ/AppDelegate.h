@@ -42,6 +42,7 @@
 }
 
 -(void) showSettings;
+-(void) initApp;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) ViewController *mainController;
